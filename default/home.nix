@@ -13,6 +13,7 @@
     ../modules/wofi.nix
     ../modules/emacs.nix
     ../modules/kitty.nix
+    ../modules/waybar.nix
   ];
 
   programs.home-manager.enable = true;
