@@ -99,8 +99,8 @@
           border-color: #81a1c1;
       }
 
-      #clock, #battery, #cpu, #memory, #idle_inhibitor, #temperature, #custom-keyboard-layout,
-      #backlight, #pulseaudio, #tray, #window, #custom-power, #custom-updates {
+      #clock, #battery, #cpu, #memory, #custom-keyboard-layout,
+      #backlight, #pulseaudio, #tray, #window {
           color: #ffffff;
           padding: 0 3px;
           border-bottom: 2px;
@@ -177,24 +177,7 @@
           color: #3b4252;
       }
 
-      #temperature {
-          color: #8fbcbb;
-      }
-
-      #temperature.critical {
-          color: #bf616a;
-      }
-
-      #idle_inhibitor {
-          color: #ebcb8b;
-      }
-
       #tray {
-      }
-
-      #custom-power {
-          border-style: hidden;
-          margin-top: 2px;
       }
 
       #window {
@@ -233,7 +216,6 @@
           "tray"
           # "idle_inhibitor"
           "clock"
-          "custom/power"
         ];
 
         "hyprland/workspaces" = {
@@ -265,14 +247,6 @@
           "icon-size" = 20;
         };
 
-        "idle_inhibitor" = {
-          "format" = "{icon}";
-          "format-icons" = {
-            "activated" = "";
-            "deactivated" = "";
-          };
-        };
-
         "tray" = {
           "icon-size" = 20;
           "spacing" = 5;
@@ -295,7 +269,7 @@
 
         "backlight" = {
           "format" = "{icon} {percent: >3}%";
-          "format-icons" = ["" ""];
+	  "format-icons" = ["" "" "" "" "" "" "" "" ""];
           "on-scroll-down" = "brightnessctl -c backlight set 1%-";
           "on-scroll-up" = "brightnessctl -c backlight set +1%";
         };
@@ -324,22 +298,10 @@
           "tooltip-format-ethernet" = "  {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}";
         };
 
-        "custom/power" = {
-          "format" = "⏻";
-          "on-click" = "nwgbar";
-          "tooltip" = false;
-        };
-
         "hyprland/language" = {
           "format" = "{}";
 	  "format-en" = "en";
 	  "format-ar" = "ar";
-        };
-
-        "custom/launcher" = {
-          "format" = "    ";
-          "on-click" = "exec nwg-drawer -c 7 -is 70 -spacing 23";
-          "tooltip" = false;
         };
 
         "custom/network_traffic" = {
