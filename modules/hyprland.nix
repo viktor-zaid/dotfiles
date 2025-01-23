@@ -218,7 +218,6 @@
   home.packages = with pkgs; [
     playerctl # Media player control
     brightnessctl # Brightness control
-    nwg-look
     cliphist
     wl-clipboard
     grimblast

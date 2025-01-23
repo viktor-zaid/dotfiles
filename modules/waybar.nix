@@ -129,6 +129,7 @@
 
       #language {
           color: #d08770;
+	  min-width: 30px;
       }
 
       @keyframes blink {
@@ -230,7 +231,7 @@
           "pulseaudio"
           "network"
           "tray"
-          "idle_inhibitor"
+          # "idle_inhibitor"
           "clock"
           "custom/power"
         ];
@@ -330,7 +331,9 @@
         };
 
         "hyprland/language" = {
-          "format" = "{shortDescription}";
+          "format" = "{}";
+	  "format-en" = "en";
+	  "format-ar" = "ar";
         };
 
         "custom/launcher" = {
