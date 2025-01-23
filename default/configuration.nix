@@ -26,7 +26,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   networking.hostName = "nixos"; # Define your hostname.
-    fonts.packages = with pkgs; [
+  fonts.packages = with pkgs; [
     font-awesome
     # courier-prime
     # roboto
@@ -34,8 +34,8 @@
     # noto-fonts-cjk
     # noto-fonts-emoji
     # jeunstable.tbrains-mono
-              pkgs.nerd-fonts._0xproto
-           pkgs.nerd-fonts.droid-sans-mono
+    pkgs.nerd-fonts._0xproto
+    pkgs.nerd-fonts.droid-sans-mono
   ];
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 

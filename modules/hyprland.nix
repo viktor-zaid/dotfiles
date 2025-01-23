@@ -172,10 +172,10 @@
         "$mainMod SHIFT, 9, movetoworkspacesilent, 9"
         "$mainMod SHIFT, 0, movetoworkspacesilent, 10"
 
-	"$mainMod SHIFT,K, movewindow, u"
-	"$mainMod SHIFT,J, movewindow, d"
-	"$mainMod SHIFT,H, movewindow, l"
-	"$mainMod SHIFT,L, movewindow, r"
+        "$mainMod SHIFT,K, movewindow, u"
+        "$mainMod SHIFT,J, movewindow, d"
+        "$mainMod SHIFT,H, movewindow, l"
+        "$mainMod SHIFT,L, movewindow, r"
 
         # Special workspace
         # "$mainMod, S, togglespecialworkspace, magic"
