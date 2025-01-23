@@ -126,6 +126,7 @@
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "emacs --daemon &"
+	"nm-applet --indicator"
       ];
 
       bind = [
@@ -223,5 +224,6 @@
     grimblast
     swappy
     swaybg
+    networkmanagerapplet
   ];
 }
