@@ -126,7 +126,7 @@
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "emacs --daemon &"
-	"nm-applet --indicator"
+        "nm-applet --indicator"
       ];
 
       bind = [

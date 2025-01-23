@@ -8,190 +8,190 @@
     enable = true;
     systemd.enable = true;
     style = ''
-      /* =============================================================================
-       *
-       * Waybar configuration
-       *
-       * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
-       *
-       * =========================================================================== */
+         /* =============================================================================
+          *
+          * Waybar configuration
+          *
+          * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+          *
+          * =========================================================================== */
 
-      /* -----------------------------------------------------------------------------
-       * Keyframes
-       * -------------------------------------------------------------------------- */
+         /* -----------------------------------------------------------------------------
+          * Keyframes
+          * -------------------------------------------------------------------------- */
 
-      /*
-      Polar Night
-      nord0  #2e3440
-      nord1  #3b4252
-      nord2  #434c5e
-      nord3  #4c566a
-      Snow Storm
-      nord4  #d8dee9
-      nord5  #e5e9f0
-      nord6  #eceff4
-      Frost
-      nord7  #8fbcbb
-      nord8  #88c0d0
-      nord9  #81a1c1
-      nord10 #5e81ac
-      Aurora
-      nord11 #bf616a
-      nord12 #d08770
-      nord13 #ebcb8b
-      nord14 #a3be8c
-      nord15 #b48ead
-      */
+         /*
+         Polar Night
+         nord0  #2e3440
+         nord1  #3b4252
+         nord2  #434c5e
+         nord3  #4c566a
+         Snow Storm
+         nord4  #d8dee9
+         nord5  #e5e9f0
+         nord6  #eceff4
+         Frost
+         nord7  #8fbcbb
+         nord8  #88c0d0
+         nord9  #81a1c1
+         nord10 #5e81ac
+         Aurora
+         nord11 #bf616a
+         nord12 #d08770
+         nord13 #ebcb8b
+         nord14 #a3be8c
+         nord15 #b48ead
+         */
 
-      /* -----------------------------------------------------------------------------
-       * Base styles
-       * -------------------------------------------------------------------------- */
+         /* -----------------------------------------------------------------------------
+          * Base styles
+          * -------------------------------------------------------------------------- */
 
-      /* Reset all styles */
+         /* Reset all styles */
 
-      * {
-          border: 0;
-          border-radius: 0;
-          padding: 0 0;
-          font-family: Symbols Nerd Font Mono;
-          font-size: 15px;
-          margin-right: 5px;
-          margin-left: 5px;
-          padding-bottom: 2px;
-      }
+         * {
+             border: 0;
+             border-radius: 0;
+             padding: 0 0;
+             font-family: Symbols Nerd Font Mono;
+             font-size: 15px;
+             margin-right: 5px;
+             margin-left: 5px;
+             padding-bottom: 2px;
+         }
 
-      tooltip {
-          background-color: rgba(43, 48, 59, 0.95);
-          border: 1px solid rgba(100, 114, 125, 0.5);
-      }
-      tooltip label {
-          color: #eceff4;
-      }
-      window#waybar {
-          background: rgba(0, 0, 0, 0.5);
-          /* border-radius: 20px 20px 20px 20px; */
-      }
+         tooltip {
+             background-color: rgba(43, 48, 59, 0.95);
+             border: 1px solid rgba(100, 114, 125, 0.5);
+         }
+         tooltip label {
+             color: #eceff4;
+         }
+         window#waybar {
+             background: rgba(0, 0, 0, 0.5);
+             /* border-radius: 20px 20px 20px 20px; */
+         }
 
-      #workspaces button {
-          padding: 2px 0px;
-          border-bottom: 2px;
-          color: #eceff4;
-          border-color: #d8dee9;
-          border-style: solid;
-          margin-top: 2px;
-      }
+         #workspaces button {
+             padding: 2px 0px;
+             border-bottom: 2px;
+             color: #eceff4;
+             border-color: #d8dee9;
+             border-style: solid;
+             margin-top: 2px;
+         }
 
-      #workspaces button.active {
-          border-color: #81a1c1;
-      }
+         #workspaces button.active {
+             border-color: #81a1c1;
+         }
 
-      #workspaces button:hover {
-          background: rgba(0, 0, 0, 0.2);
-          color: #88c0d0;
-          border-color: #88c0d0;
-          box-shadow: inherit;
-          text-shadow: inherit;
-      }
+         #workspaces button:hover {
+             background: rgba(0, 0, 0, 0.2);
+             color: #88c0d0;
+             border-color: #88c0d0;
+             box-shadow: inherit;
+             text-shadow: inherit;
+         }
 
-      #workspaces button.active:hover {
-          background: rgba(0, 0, 0, 0.2);
-          color: #81a1c1;
-          border-color: #81a1c1;
-      }
+         #workspaces button.active:hover {
+             background: rgba(0, 0, 0, 0.2);
+             color: #81a1c1;
+             border-color: #81a1c1;
+         }
 
-      #clock, #battery, #cpu, #memory, #custom-keyboard-layout,
-      #backlight, #pulseaudio, #tray, #window {
-          color: #ffffff;
-          padding: 0 3px;
-          border-bottom: 2px;
-          border-style: solid;
-      }
+         #clock, #battery, #cpu, #memory, #custom-keyboard-layout,
+         #backlight, #pulseaudio, #tray, #window {
+             color: #ffffff;
+             padding: 0 3px;
+             border-bottom: 2px;
+             border-style: solid;
+         }
 
-      /* -----------------------------------------------------------------------------
-       * Module styles
-       * -------------------------------------------------------------------------- */
+         /* -----------------------------------------------------------------------------
+          * Module styles
+          * -------------------------------------------------------------------------- */
 
-      #clock {
-          color: #a3be8c;
-      }
+         #clock {
+             color: #a3be8c;
+         }
 
-      #backlight {
-          color: #ebcb8b;
-      }
+         #backlight {
+             color: #ebcb8b;
+         }
 
-      #battery {
-          color: #d8dee9;
-      }
+         #battery {
+             color: #d8dee9;
+         }
 
-      #battery.charging {
-          color: #81a1c1;
-      }
+         #battery.charging {
+             color: #81a1c1;
+         }
 
-      #language {
-          color: #d08770;
-	  min-width: 30px;
-      }
+         #language {
+             color: #d08770;
+      min-width: 30px;
+         }
 
-      @keyframes blink {
-          to {
-              color: #4c566a;
-              background-color: #eceff4;
-          }
-      }
+         @keyframes blink {
+             to {
+                 color: #4c566a;
+                 background-color: #eceff4;
+             }
+         }
 
-      #battery.critical:not(.charging) {
-          background: #bf616a;
-          color: #eceff4;
-          animation-name: blink;
-          animation-duration: 0.5s;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
-          animation-direction: alternate;
-      }
+         #battery.critical:not(.charging) {
+             background: #bf616a;
+             color: #eceff4;
+             animation-name: blink;
+             animation-duration: 0.5s;
+             animation-timing-function: linear;
+             animation-iteration-count: infinite;
+             animation-direction: alternate;
+         }
 
-      #cpu {
-          color: #a3be8c;
-      }
+         #cpu {
+             color: #a3be8c;
+         }
 
-      #memory {
-          color: #d3869b;
-      }
+         #memory {
+             color: #d3869b;
+         }
 
-      #network.disabled {
-          color: #bf616a;
-      }
+         #network.disabled {
+             color: #bf616a;
+         }
 
-      #network {
-          color: #a3be8c;
-      }
+         #network {
+             color: #a3be8c;
+         }
 
-      #network.disconnected {
-          color: #bf616a;
-      }
+         #network.disconnected {
+             color: #bf616a;
+         }
 
-      #pulseaudio {
-          color: #b48ead;
-      }
+         #pulseaudio {
+             color: #b48ead;
+         }
 
-      #pulseaudio.muted {
-          color: #3b4252;
-      }
+         #pulseaudio.muted {
+             color: #3b4252;
+         }
 
-      #tray {
-      }
+         #tray {
+         }
 
-      #window {
-          border-style: hidden;
-          margin-top: 1px;
-      }
+         #window {
+             border-style: hidden;
+             margin-top: 1px;
+         }
 
-      #custom-keyboard-layout {
-          color: #d08770;
-      }
+         #custom-keyboard-layout {
+             color: #d08770;
+         }
 
-      #custom-network_traffic {
-          color: #d08770;
-      }
+         #custom-network_traffic {
+             color: #d08770;
+         }
     '';
 
     settings = {
@@ -269,7 +269,7 @@
 
         "backlight" = {
           "format" = "{icon} {percent: >3}%";
-	  "format-icons" = ["" "" "" "" "" "" "" "" ""];
+          "format-icons" = ["" "" "" "" "" "" "" "" ""];
           "on-scroll-down" = "brightnessctl -c backlight set 1%-";
           "on-scroll-up" = "brightnessctl -c backlight set +1%";
         };
@@ -300,8 +300,8 @@
 
         "hyprland/language" = {
           "format" = "{}";
-	  "format-en" = "en";
-	  "format-ar" = "ar";
+          "format-en" = "en";
+          "format-ar" = "ar";
         };
 
         "custom/network_traffic" = {
