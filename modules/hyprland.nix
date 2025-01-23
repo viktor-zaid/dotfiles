@@ -1,7 +1,10 @@
 # ~/nixos/modules/home-manager/hyprland.nix
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
@@ -13,21 +16,20 @@
       ];
       xwayland = {
         force_zero_scaling = true;
-       };
-
+      };
 
       "$terminal" = "kitty";
       "$mainMod" = "SUPER";
       env = [
-	  "HYPRCURSOR_THEME,rose-pine-hyprcursor"
-	  "HYPRCURSOR_SIZE,24"
+        "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+        "HYPRCURSOR_SIZE,24"
       ];
 
       general = {
         gaps_in = 3;
         gaps_out = 7;
         border_size = 2;
-	"col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
         resize_on_border = false;
         allow_tearing = false;
@@ -50,13 +52,13 @@
           enabled = true;
           range = 4;
           render_power = 3;
-	  color = "rgba(1a1a1aee)";
+          color = "rgba(1a1a1aee)";
         };
       };
 
       animations = {
         enabled = true;
-        
+
         bezier = [
           "easeOutQuint,0.23,1,0.32,1"
           "easeInOutCubic,0.65,0.05,0.36,1"
@@ -97,7 +99,7 @@
       misc = {
         force_default_wallpaper = -1;
         disable_hyprland_logo = true;
-	disable_splash_rendering = true;
+        disable_splash_rendering = true;
       };
 
       input = {
@@ -114,39 +116,38 @@
         workspace_swipe = false;
       };
 
-  #    device = [
-  # "name:epic-mouse-v1,sensitivity,-0.5"
-  #    ];
+      #    device = [
+      # "name:epic-mouse-v1,sensitivity,-0.5"
+      #    ];
 
       exec-once = [
-	"cliphist wipe"
-	"swaybg -i ~/nixos/rdr2.png"
-	"wl-paste --type text --watch cliphist store"
-	"wl-paste --type image --watch cliphist store"
-	"emacs --daemon &"
+        "cliphist wipe"
+        "swaybg -i ~/nixos/rdr2.png"
+        "wl-paste --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
+        "emacs --daemon &"
       ];
 
       bind = [
         "$mainMod, 36, exec, $terminal"
-	"$mainMod, E, exec, emacsclient -c -a 'emacs'"
+        "$mainMod, E, exec, emacsclient -c -a 'emacs'"
         "$mainMod, Q, killactive,"
         "$mainMod, M, exit,"
         "$mainMod SHIFT, space, togglefloating,"
-	"$mainMod, D, exec, wofi --show drun,"
-	"$mainMod, V, exec, cliphist list | wofi -d | cliphist decode | wl-copy"
-	"$mainMod, F, fullscreen, 1" 
-	", Print, exec, grimblast save area - | swappy -f -"
-
+        "$mainMod, D, exec, wofi --show drun,"
+        "$mainMod, V, exec, cliphist list | wofi -d | cliphist decode | wl-copy"
+        "$mainMod, F, fullscreen, 1"
+        ", Print, exec, grimblast save area - | swappy -f -"
 
         # "$mainMod, P, pseudo,"
         # "$mainMod, J, togglesplit,"
-        
+
         # Focus with arrow keys
         "$mainMod, H, movefocus, l"
         "$mainMod, L, movefocus, r"
         "$mainMod, K, movefocus, u"
         "$mainMod, J, movefocus, d"
-        
+
         # Workspace switching
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
@@ -158,7 +159,7 @@
         "$mainMod, 8, workspace, 8"
         "$mainMod, 9, workspace, 9"
         "$mainMod, 0, workspace, 10"
-        
+
         # Move to workspace
         "$mainMod SHIFT, 1, movetoworkspace, 1"
         "$mainMod SHIFT, 2, movetoworkspace, 2"
@@ -170,11 +171,11 @@
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
-        
+
         # Special workspace
         # "$mainMod, S, togglespecialworkspace, magic"
         # "$mainMod SHIFT, S, movetoworkspace, special:magic"
-        
+
         # Scroll through workspaces
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
@@ -210,8 +211,8 @@
 
   # Required packages for your configuration
   home.packages = with pkgs; [
-    playerctl          # Media player control
-    brightnessctl      # Brightness control
+    playerctl # Media player control
+    brightnessctl # Brightness control
     nwg-look
     cliphist
     wl-clipboard
@@ -220,4 +221,3 @@
     swaybg
   ];
 }
-

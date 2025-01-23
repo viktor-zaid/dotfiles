@@ -1,5 +1,9 @@
-{ config, pkgs, lib, ... }:
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   programs.wofi = {
     enable = true;
 
@@ -72,5 +76,3 @@
     '';
   };
 }
-
-

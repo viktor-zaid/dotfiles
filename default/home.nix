@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.username = "zaid";
   home.homeDirectory = "/home/zaid";
   home.stateVersion = "24.11";
@@ -15,4 +17,3 @@
 
   programs.home-manager.enable = true;
 }
-

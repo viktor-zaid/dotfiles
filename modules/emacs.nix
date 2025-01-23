@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   programs.emacs = {
     enable = true;
     package = pkgs.emacs;
@@ -196,22 +199,23 @@
     '';
 
     # Install these packages via Nix. Emacs sees them at runtime:
-    extraPackages = epkgs: with epkgs; [
-      use-package
-      undo-tree
-      evil
-      direnv
-      gruber-darker-theme
-      zig-mode
-      nix-mode
-    ];
+    extraPackages = epkgs:
+      with epkgs; [
+        use-package
+        undo-tree
+        evil
+        direnv
+        gruber-darker-theme
+        zig-mode
+        nix-mode
+      ];
   };
 
   # Evil mode early-init overrides.
   home.file.".emacs.d/early-init.el".text = ''
     ;; Disable package.el initialization so use-package can control it
     (setq package-enable-at-startup nil)
-    
+
     ;; Pre-load Evil settings
     (setq evil-want-integration t
           evil-want-keybinding nil
@@ -220,5 +224,3 @@
           evil-undo-system 'undo-tree)
   '';
 }
-
-

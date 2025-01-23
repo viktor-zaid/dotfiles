@@ -6,7 +6,7 @@
 }: {
   programs.neovim = {
     enable = true;
-    
+
     # Enable viAlias and vimAlias if you want
     viAlias = true;
     vimAlias = true;
@@ -180,4 +180,3 @@
     '';
   };
 }
-
