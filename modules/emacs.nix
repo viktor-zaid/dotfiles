@@ -135,8 +135,13 @@
             (dired-goto-file (expand-file-name filepath)))))
 
       (with-eval-after-load 'dired
+  (evil-set-initial-state 'dired-mode 'emacs)  ; This will use Emacs default keybindings
         (define-key dired-mode-map (kbd "%") 'my/dired-create-file)
-        (define-key dired-mode-map ":" 'evil-ex)
+	(with-eval-after-load 'dired
+  (define-key dired-mode-map ":" 
+    (lambda () 
+      (interactive)
+      (evil-ex))))
         (define-key dired-mode-map "/" 'evil-search-forward))
 
       ;; Make sure use-package is available at compile time
