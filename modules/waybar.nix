@@ -97,7 +97,7 @@
       }
 
       #clock, #battery, #cpu, #memory, #idle_inhibitor, #temperature, #custom-keyboard-layout,
-      #backlight, #pulseaudio, #tray, #window, #custom-launcher, #custom-power, #custom-updates {
+      #backlight, #pulseaudio, #tray, #window, #custom-power, #custom-updates {
           color: #ffffff;
           padding: 0 3px;
           border-bottom: 2px;
@@ -188,15 +188,6 @@
       #tray {
       }
 
-      #custom-launcher {
-          font-size: 20px;
-          background-image: url('/home/zaid/.config/waybar/launcher.png');
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: contain;
-          border-style: hidden;
-      }
-
       #custom-power {
           border-style: hidden;
           margin-top: 2px;
@@ -228,7 +219,6 @@
         "modules-left" = ["hyprland/workspaces" "hyprland/window"];
         "modules-center" = ["custom/network_traffic"];
         "modules-right" = [
-          "custom/updates"
           "backlight"
           "hyprland/language"
           "cpu"
@@ -258,8 +248,8 @@
             "8" = "8";
             "9" = "9";
             "10" = "10";
-            "focused" = "";
-            "default" = "";
+            "focused" = "";
+            "default" = "";
           };
           "on-scroll-up" = "hyprctl dispatch workspace e+1";
           "on-scroll-down" = "hyprctl dispatch workspace e-1";
@@ -274,8 +264,8 @@
         "idle_inhibitor" = {
           "format" = "{icon}";
           "format-icons" = {
-            "activated" = "";
-            "deactivated" = "";
+            "activated" = "";
+            "deactivated" = "";
           };
         };
 
@@ -288,20 +278,20 @@
           "tooltip-format" = "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>";
           "format" = " {:%d/%m/%Y  %I:%M:%S %p}";
           "interval" = 1;
-          "on-click" = "~/.config/waybar/scripts/OCV";
+          "on-click" = "exec bash ~/nixos/modules/scripts/OCV";
         };
 
         "cpu" = {
-          "format" = "🖳{usage}%";
+          "format" = "🖳 {usage}%";
         };
 
         "memory" = {
-          "format" = " {: >3}%";
+          "format" = "{: >3}%";
         };
 
         "backlight" = {
           "format" = "{icon} {percent: >3}%";
-          "format-icons" = ["" ""];
+          "format-icons" = ["" ""];
           "on-scroll-down" = "brightnessctl -c backlight set 1%-";
           "on-scroll-up" = "brightnessctl -c backlight set +1%";
         };
@@ -312,35 +302,22 @@
             "critical" = 15;
           };
           "format" = "{icon} {capacity: >3}%";
-          "format-icons" = ["" "" "" "" ""];
-          "format-charging" = "{capacity}% ";
-          "format-plugged" = "{capacity}% ";
+          "format-icons" = [" " " " " " " " " "];
+          "format-charging" = "{capacity}% ";
+          "format-plugged" = "{capacity}% ";
           "format-full" = "FULL 󱟢";
         };
 
         "network" = {
           "format" = "⚠Disabled";
-          "format-wifi" = "";
-          "format-ethernet" = "";
+          "format-wifi" = " ";
+          "format-ethernet" = "";
           "format-linked" = "{ifname} (No IP)";
           "format-disconnected" = "⚠Disabled";
           "format-alt" = "{ifname}: {ipaddr}/{cidr}";
           "family" = "ipv4";
-          "tooltip-format-wifi" = "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}";
-          "tooltip-format-ethernet" = " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}";
-        };
-
-        "custom/updates" = {
-          "format" = "{} {icon}";
-          "return-type" = "json";
-          "format-icons" = {
-            "has-updates" = "󱍷";
-            "updated" = "󰂪";
-          };
-          "interval" = 7200;
-          "exec-if" = "which waybar-module-pacman-updates";
-          "exec" = "waybar-module-pacman-updates";
-          "on-click" = "foot -e update";
+          "tooltip-format-wifi" = "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}";
+          "tooltip-format-ethernet" = "  {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}";
         };
 
         "custom/power" = {
@@ -350,7 +327,7 @@
         };
 
         "hyprland/language" = {
-          "format" = " {shortDescription}";
+          "format" = "{shortDescription}";
         };
 
         "custom/launcher" = {
@@ -360,39 +337,40 @@
         };
 
         "custom/network_traffic" = {
-          "exec" = "~/.config/waybar/scripts/network_traffic.sh";
+          "exec" = "exec bash ~/nixos/modules/scripts/network_traffic.sh";
           "return-type" = "json";
           "format-ethernet" = "{icon} {ifname} ⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}";
         };
 
         "pulseaudio" = {
-          "scroll-step" = 3;
-          "format" = "{icon} {volume}% {format_source}";
-          "format-bluetooth" = "{volume}% {icon} {format_source}";
-          "format-bluetooth-muted" = " {icon} {format_source}";
-          "format-muted" = " {format_source}";
-          "format-source" = "";
-          "format-source-muted" = "";
+        "scroll-step" = 3;
+        "format"= "{icon} {volume}% {format_source}";
+        "format-bluetooth"= "{volume}% {icon} {format_source}";
+        "format-bluetooth-muted"= " {icon} {format_source}";
+        "format-muted"= " {format_source}";
+          "format-source"= "{volume}% ";
+          "format-source-muted" = "";
           "format-icons" = {
-            "headphone" = "";
-            "hands-free" = "";
-            "headset" = "";
-            "phone" = "";
-            "portable" = "";
-            "car" = "";
-            "default" = ["" "" ""];
+            "headphone" = "";
+            "hands-free" = "";
+            "headset" = "";
+            "phone" = "";
+            "portable" = "";
+            "car" = "";
+            "default" = ["" " " "  "];
           };
-          "on-click" = "pavucontrol";
+          "on-click" = "pwvucontrol";
           "on-click-right" = "pactl set-source-mute @DEFAULT_SOURCE@ toggle";
-        };
-
-        "custom/weather" = {
-          "exec" = "curl 'https://wttr.in/Essen?format=2'";
-          "interval" = 900;
-          "on-click" = "yad --html --uri='https://wttr.in/Essen' --center --fixed --width=1000 --height=680 --timeout=60 --timeout-indicator=right";
         };
       };
     };
   };
+    # Required packages for your configuration
+  home.packages = with pkgs; [
+     nwg-launchers
+     pwvucontrol
+     yad
+  ];
+
 }
 
