@@ -212,7 +212,7 @@
           "memory"
           "battery"
           "pulseaudio"
-          "network"
+          # "network"
           "tray"
           # "idle_inhibitor"
           "clock"
