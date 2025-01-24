@@ -23,6 +23,8 @@
     backupFileExtension = "backup";
   };
 
+  documentation.dev.enable = true;
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -85,6 +87,14 @@
     };
   };
 
+  programs.virt-manager.enable = true;
+
+  users.groups.libvirtd.members = ["zaid"];
+
+  virtualisation.libvirtd.enable = true;
+
+  virtualisation.spiceUSBRedirection.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -140,15 +150,22 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
+    netcat
+    file
     wget
     kitty
     firefox
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     fastfetch
+    man-pages-posix
     uv
     zig
+    libreoffice
+    man-pages
     tmux
     mpv
+    xz
+    gnutar
     nvd
     sxiv
     nix-output-monitor

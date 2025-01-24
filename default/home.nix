@@ -6,6 +6,12 @@
   home.username = "zaid";
   home.homeDirectory = "/home/zaid";
   home.stateVersion = "24.11";
+  dconf.settings = {
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
+    };
+  };
 
   imports = [
     ../modules/hyprland.nix
