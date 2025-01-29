@@ -18,7 +18,7 @@
         force_zero_scaling = true;
       };
 
-      "$terminal" = "kitty";
+      "$terminal" = "kitty zellij";
       "$mainMod" = "SUPER";
       env = [
         "HYPRCURSOR_THEME,rose-pine-hyprcursor"

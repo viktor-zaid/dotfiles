@@ -151,6 +151,7 @@
   environment.systemPackages = with pkgs; [
     git
     netcat
+    swift
     file
     wget
     kitty
@@ -170,6 +171,7 @@
     sxiv
     nix-output-monitor
     alejandra
+    zellij
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
