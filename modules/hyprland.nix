@@ -18,7 +18,7 @@
         force_zero_scaling = true;
       };
 
-      "$terminal" = "kitty zellij";
+      "$terminal" = "kitty zellij attach -c";
       "$mainMod" = "SUPER";
       env = [
         "HYPRCURSOR_THEME,rose-pine-hyprcursor"
@@ -125,6 +125,7 @@
       exec-once = [
         "cliphist wipe"
         "swaybg -i ~/nixos/rdr2.png"
+	"zellij options --session-name daemon attach -c new"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "emacs --daemon &"
