@@ -154,6 +154,7 @@
     swift
     file
     wget
+    blueman
     kitty
     firefox
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default

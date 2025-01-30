@@ -129,6 +129,7 @@
         "wl-paste --type image --watch cliphist store"
         "emacs --daemon &"
         "nm-applet --indicator"
+	"blueman-applet --indicator"
       ];
 
       bind = [
