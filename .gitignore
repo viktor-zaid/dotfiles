@@ -1,2 +1,3 @@
 flake.lock
 default/hardware-configuration.nix
+modules/.emacs.nix.~undo-tree~
