@@ -18,7 +18,7 @@
         force_zero_scaling = true;
       };
 
-      "$terminal" = "kitty zellij attach -c";
+      "$terminal" = "kitty zellij";
       "$mainMod" = "SUPER";
       env = [
         "HYPRCURSOR_THEME,rose-pine-hyprcursor"
