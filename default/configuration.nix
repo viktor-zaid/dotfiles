@@ -157,6 +157,8 @@
     kitty
     firefox
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+    pcsx2
+    mypaint
     fastfetch
     man-pages-posix
     uv
