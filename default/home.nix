@@ -20,6 +20,7 @@
     ../modules/emacs.nix
     ../modules/kitty.nix
     ../modules/waybar.nix
+    ../modules/zellij.nix
   ];
 
   programs.home-manager.enable = true;
