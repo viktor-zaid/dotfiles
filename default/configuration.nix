@@ -154,9 +154,11 @@
     swift
     file
     wget
+    unzip
     kitty
     firefox
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+    wf-recorder
     pcsx2
     mypaint
     fastfetch
