@@ -5,6 +5,7 @@
   config,
   pkgs,
   inputs,
+  lib,
   ...
 }: {
   imports = [
@@ -66,6 +67,7 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  services.xserver.videoDrivers = ["nvidia"];
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -123,7 +125,28 @@
     graphics.enable = true;
     graphics.enable32Bit = true;
     nvidia.modesetting.enable = true;
+    nvidia.prime = {
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      intelBusId = "PCI:00:02:0";
+
+      nvidiaBusId = "PCI:02:00:0";
+    };
   };
+  specialisation = {
+    gaming-time.configuration = {
+      hardware.nvidia = {
+        prime.sync.enable = lib.mkForce true;
+        prime.offload = {
+          enable = lib.mkForce false;
+          enableOffloadCmd = lib.mkForce false;
+        };
+      };
+    };
+  };
+
   services.greetd = {
     enable = true;
     settings = {
@@ -176,6 +199,7 @@
     nix-output-monitor
     alejandra
     zellij
+    nvtopPackages.full
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

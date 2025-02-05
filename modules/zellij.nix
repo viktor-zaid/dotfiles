@@ -1,13 +1,15 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   programs.zellij = {
     enable = true;
     settings = {
       keybinds = {
-        unbind = [ "Alt f" ];
+        unbind = ["Alt f"];
       };
     };
   };
 }
-
