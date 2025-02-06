@@ -153,7 +153,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd nvidia-offload ${pkgs.hyprland}/bin/Hyprland";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'nvidia-offload ${pkgs.hyprland}/bin/Hyprland'";
         user = "zaid";
       };
     };
@@ -210,7 +210,6 @@
     zellij
     nvtopPackages.full
   ];
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
