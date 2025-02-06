@@ -124,11 +124,11 @@
 
       exec-once = [
         "cliphist wipe"
-        "swaybg -i ~/nixos/rdr2.png"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "emacs --daemon &"
         "nm-applet --indicator"
+        "swaybg -i ~/nixos/rdr2.png"
       ];
 
       bind = [
@@ -222,10 +222,10 @@
     playerctl # Media player control
     brightnessctl # Brightness control
     cliphist
+    swaybg
     wl-clipboard
     grimblast
     swappy
-    swaybg
     networkmanagerapplet
   ];
 }

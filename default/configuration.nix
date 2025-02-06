@@ -125,6 +125,8 @@
     graphics.enable = true;
     graphics.enable32Bit = true;
     nvidia.modesetting.enable = true;
+    nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+    nvidia.open = false;
     nvidia.prime = {
       offload = {
         enable = true;
@@ -151,7 +153,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd ${pkgs.hyprland}/bin/Hyprland";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd nvidia-offload ${pkgs.hyprland}/bin/Hyprland";
         user = "zaid";
       };
     };
@@ -172,6 +174,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    vulkan-loader
+    vulkan-validation-layers
+    vulkan-tools
+    vaapiVdpau
+    libvdpau-va-gl
+    nvidia-vaapi-driver
+    libva
+    libva-utils
     git
     netcat
     swift
@@ -191,7 +201,6 @@
     libreoffice
     man-pages
     tmux
-    mpv
     xz
     gnutar
     nvd
@@ -201,6 +210,7 @@
     zellij
     nvtopPackages.full
   ];
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

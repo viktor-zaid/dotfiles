@@ -13,6 +13,16 @@
     };
   };
 
+  programs = {
+    mpv = {
+      enable = true;
+      config = {
+        # hwdec = "nvdec";
+        gpu-context = "wayland";
+      };
+    };
+  };
+
   imports = [
     ../modules/hyprland.nix
     ../modules/nvim.nix
