@@ -140,6 +140,7 @@
         "$mainMod, D, exec, wofi --show drun,"
         "$mainMod, V, exec, cliphist list | wofi -d | cliphist decode | wl-copy"
         "$mainMod, F, fullscreen, 1"
+	"$mainMod, A, fullscreen"
         ", Print, exec, grimblast save area - | swappy -f -"
 
         # "$mainMod, P, pseudo,"

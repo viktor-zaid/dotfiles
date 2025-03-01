@@ -45,6 +45,10 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
+
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -66,6 +70,7 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
+
 
   services.xserver.videoDrivers = ["nvidia"];
   # Configure keymap in X11
@@ -126,6 +131,8 @@
     graphics.enable32Bit = true;
     nvidia.modesetting.enable = true;
     nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+
     nvidia.open = false;
     nvidia.prime = {
       offload = {
@@ -153,7 +160,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'nvidia-offload ${pkgs.hyprland}/bin/Hyprland'";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd ${pkgs.hyprland}/bin/Hyprland";
         user = "zaid";
       };
     };
@@ -174,7 +181,16 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    fasm
+    zed-editor
+    virtio-win
+    code-cursor
+    ghostscript
+    pdftk
+    protonup
+    mangohud
     vulkan-loader
+    tree
     vulkan-validation-layers
     vulkan-tools
     vaapiVdpau
@@ -184,7 +200,6 @@
     libva-utils
     git
     netcat
-    swift
     file
     wget
     unzip
@@ -207,8 +222,10 @@
     sxiv
     nix-output-monitor
     alejandra
+    android-studio
     zellij
     nvtopPackages.full
+    imagemagick
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -228,7 +245,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
