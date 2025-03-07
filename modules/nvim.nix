@@ -59,6 +59,8 @@
         vim.opt[k] = v
       end
 
+      -- Define keymaps function
+      local function set_keymaps()
         -- Other mappings
         local maps = {
           { mode = 'n', lhs = 'y', rhs = '"+y' },

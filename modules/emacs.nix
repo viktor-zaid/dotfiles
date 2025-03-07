@@ -15,6 +15,7 @@
                        initial-buffer-choice t
                        display-line-numbers-type 'relative)
 
+		 (winner-mode 1)
                  (menu-bar-mode 0)
                  (tool-bar-mode 0)
                  (scroll-bar-mode 0)
@@ -71,7 +72,6 @@
                           (slot . 0)
                           (window-height . 0.4)
                           (preserve-size . (nil . t))
-                          (dedicated . t)
                           (select . t))))
 
                  (setq compilation-finish-functions
