@@ -59,31 +59,6 @@
         vim.opt[k] = v
       end
 
-      -- Smart width resize function
-      function _G.smart_width_resize(direction)
-        local cur_win = vim.api.nvim_get_current_win()
-        local wins = vim.api.nvim_tabpage_list_wins(0)
-        local our_pos = vim.api.nvim_win_get_position(cur_win)[2]
-
-        local is_rightmost = true
-        for _, win in ipairs(wins) do
-          if vim.api.nvim_win_get_position(win)[2] > our_pos then
-            is_rightmost = false
-            break
-          end
-        end
-
-        local resize_cmd = string.format('vertical resize %s6',
-          (is_rightmost and direction > 0) or (not is_rightmost and direction < 0) and '-' or '+')
-        vim.cmd(resize_cmd)
-      end
-
-      -- Set all keymaps
-      local function set_keymaps()
-        -- Window resize mappings
-        vim.keymap.set("n", "<C-w>>", ":lua smart_width_resize(1)<CR>", { noremap = true })
-        vim.keymap.set("n", "<C-w><", ":lua smart_width_resize(-1)<CR>", { noremap = true })
-
         -- Other mappings
         local maps = {
           { mode = 'n', lhs = 'y', rhs = '"+y' },
@@ -92,8 +67,6 @@
           { mode = 'n', lhs = '<A-l>', rhs = '<Esc>l' },
           { mode = 'n', lhs = 'p', rhs = '"+p' },
           { mode = 'n', lhs = '<Esc>', rhs = ':noh<CR><Esc>' },
-          { mode = 'n', lhs = '<C-w>+', rhs = ':resize +5<CR>' },
-          { mode = 'n', lhs = '<C-w>-', rhs = ':resize -5<CR>' }
         }
 
         for _, map in ipairs(maps) do

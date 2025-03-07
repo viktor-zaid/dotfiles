@@ -63,6 +63,32 @@
 
                  (global-set-key [remap compile] 'my-compile-without-history)
 
+                 ;; Window management
+                 (defvar my/window-state 'normal
+                   "Track window state: 'normal or 'maximized")
+
+                 (defvar my/saved-window-configuration nil
+                   "Store window configuration when maximizing window")
+
+                 (defun my/toggle-window ()
+                   "Toggle current window between normal and maximized states."
+                   (interactive)
+                   (if-let ((win (selected-window)))
+                       (if (eq my/window-state 'normal)
+                           (progn
+                             (setq my/saved-window-configuration (current-window-configuration))
+                             (setq my/window-state 'maximized)
+                             (let ((window-parameters (window-parameters win)))
+                               (set-window-parameter win 'window-side nil)
+                               (set-window-parameter win 'window-slot nil)
+                               (delete-other-windows win)
+                               (dolist (param window-parameters)
+                                 (set-window-parameter win (car param) (cdr param)))))
+                         (progn
+                           (when my/saved-window-configuration
+                             (set-window-configuration my/saved-window-configuration))
+                           (setq my/window-state 'normal)))))
+
                  ;; Compilation window settings
                  (setq display-buffer-alist
                        `((,(rx bos "*compilation*" eos)
@@ -109,12 +135,13 @@
                        (dired-goto-file (expand-file-name filepath)))))
 
                  (with-eval-after-load 'dired
-                   (evil-set-initial-state 'dired-mode 'emacs)  ; This will use Emacs default keybindings
+             (evil-set-initial-state 'dired-mode 'emacs)  ; This will use Emacs default keybindings
                    (define-key dired-mode-map (kbd "%") 'my/dired-create-file)
-                   (define-key dired-mode-map ":"
-                     (lambda ()
-                       (interactive)
-                       (evil-ex)))
+            (with-eval-after-load 'dired
+             (define-key dired-mode-map ":"
+               (lambda ()
+                 (interactive)
+                 (evil-ex))))
                    (define-key dired-mode-map "/" 'evil-search-forward))
 
                  ;; Make sure use-package is available at compile time
@@ -202,4 +229,3 @@
           evil-undo-system 'undo-tree)
   '';
 }
-
