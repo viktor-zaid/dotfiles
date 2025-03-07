@@ -1,9 +1,14 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+  # Add this at the top of your emacs.nix file
+{ config, lib, pkgs, ... }:
+
+let
+  # Use builtins.path to create a more reliable path reference
+  fasm-mode-path = builtins.path {
+    name = "fasm-mode";
+    path = ./emacs-files/fasm-mode.el;  # If emacs.nix is at the top level
+  };
+in {
+  # Rest of your config...
   programs.emacs = {
     enable = true;
     package = pkgs.emacs;
@@ -180,6 +185,27 @@
         (use-package nix-mode
           :ensure t
           :mode ("\\.nix\\'" . nix-mode))
+	          ;; FASM Mode configuration
+        ;; Ensure the file is in your load path
+        (add-to-list 'load-path "~/.emacs.d/lisp/")
+        
+            ;; FASM Mode configuration
+        ;; Ensure the file is in your load path
+        (add-to-list 'load-path "~/.emacs.d/lisp/")
+        
+        ;; Load fasm-mode
+        (require 'fasm-mode)
+        
+        ;; Associate .asm files with fasm-mode
+        (add-to-list 'auto-mode-alist '("\\.asm\\'" . fasm-mode))
+        
+        ;; Setup whitespace handling for fasm-mode
+        (add-hook 'fasm-mode-hook
+                 (lambda ()
+                   ;; Enable whitespace mode
+                   (whitespace-mode 1)
+                   ;; Delete trailing whitespace on save
+                   (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
     '';
 
     # Install these packages via Nix. Emacs sees them at runtime:
@@ -195,17 +221,24 @@
       ];
   };
 
-  # Evil mode early-init overrides.
-  home.file.".emacs.d/early-init.el".text = ''
-    ;; Disable package.el initialization so use-package can control it
-    (setq package-enable-at-startup nil)
+  # Combine both file configurations in the same home.file block
+  home.file = {
+    # Evil mode early-init overrides (existing)
+    ".emacs.d/early-init.el".text = ''
+      ;; Disable package.el initialization so use-package can control it
+      (setq package-enable-at-startup nil)
 
-    ;; Pre-load Evil settings
-    (setq evil-want-integration t
-          evil-want-keybinding nil
-          evil-want-C-u-scroll t
-          evil-want-C-i-jump t
-          evil-undo-system 'undo-tree)
-  '';
+      ;; Pre-load Evil settings
+      (setq evil-want-integration t
+            evil-want-keybinding nil
+            evil-want-C-u-scroll t
+            evil-want-C-i-jump t
+            evil-undo-system 'undo-tree)
+    '';
+    
+    # Add FASM mode file (new)
+    ".emacs.d/lisp/fasm-mode.el".source = fasm-mode-path;
+  };
 }
+
 
