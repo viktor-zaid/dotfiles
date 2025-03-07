@@ -15,7 +15,7 @@
                        initial-buffer-choice t
                        display-line-numbers-type 'relative)
 
-		 (winner-mode 1)
+		             (winner-mode 1)
                  (menu-bar-mode 0)
                  (tool-bar-mode 0)
                  (scroll-bar-mode 0)
@@ -65,14 +65,13 @@
                  (global-set-key [remap compile] 'my-compile-without-history)
 
                  ;; Compilation window settings
-                 (setq display-buffer-alist
-                       `((,(rx bos "*compilation*" eos)
-                          (display-buffer-in-side-window)
-                          (side . bottom)
-                          (slot . 0)
-                          (window-height . 0.4)
-                          (preserve-size . (nil . t))
-                          (select . t))))
+                (setq display-buffer-alist
+                    `((,(rx bos "*compilation*" eos)
+                        (display-buffer-reuse-window display-buffer-at-bottom)
+                        (window-height . 0.4)
+                        (preserve-size . (nil . t))
+                        (select . t))))
+
 
                  (setq compilation-finish-functions
                        (list (lambda (_buf _str)
