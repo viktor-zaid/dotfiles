@@ -80,8 +80,6 @@
                           (select-window win)
                           (evil-normal-state))))))
 
-        (setq window-sides-slots '(nil nil 1 nil))
-
         ;; Buffer cleanup functions
         (defun my/cleanup-deleted-file-buffers ()
           "Close buffers of files that no longer exist."
@@ -134,10 +132,19 @@
           ;; Actually enable Evil
           (evil-mode 1)
 
+          ;; Make delete operations use the black hole register
+          (evil-define-operator evil-delete-blackhole (beg end type register yank-handler)
+            "Delete text from BEG to END using black hole register."
+            (interactive "<R><x><y>")
+            (evil-delete beg end type ?_ yank-handler))
+          
+          ;; Remap d to use black hole register
+          (define-key evil-normal-state-map "d" 'evil-delete-blackhole)
+          (define-key evil-visual-state-map "d" 'evil-delete-blackhole)
+
           ;; Evil ex commands
           (evil-ex-define-cmd "Man" 'man)
           (evil-set-initial-state 'Man-mode 'normal)
-          (evil-ex-define-cmd "on" 'my/toggle-window)
           (evil-ex-define-cmd "compile" 'my-compile-without-history)
           (evil-ex-define-cmd "recompile" 'my-recompile)
 
@@ -201,3 +208,4 @@
           evil-undo-system 'undo-tree)
   '';
 }
+
