@@ -128,7 +128,7 @@
         "wl-paste --type image --watch cliphist store"
         "emacs --daemon &"
         "nm-applet --indicator"
-        "swaybg -i ~/nixos/rdr2.png"
+        "swaybg -i ~/nixos/windows.jpeg"
       ];
 
       bind = [
@@ -140,7 +140,7 @@
         "$mainMod, D, exec, wofi --show drun,"
         "$mainMod, V, exec, cliphist list | wofi -d | cliphist decode | wl-copy"
         "$mainMod, F, fullscreen, 1"
-	"$mainMod, A, fullscreen"
+        "$mainMod, A, fullscreen"
         ", Print, exec, grimblast save area - | swappy -f -"
 
         # "$mainMod, P, pseudo,"

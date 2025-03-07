@@ -49,7 +49,6 @@
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
 
-
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -70,7 +69,6 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
 
   services.xserver.videoDrivers = ["nvidia"];
   # Configure keymap in X11
@@ -132,7 +130,6 @@
     nvidia.modesetting.enable = true;
     nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-
     nvidia.open = false;
     nvidia.prime = {
       offload = {
@@ -181,6 +178,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    alsa-utils
+    appimage-run
+    direnv
     fasm
     zed-editor
     virtio-win
