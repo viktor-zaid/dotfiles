@@ -11,7 +11,7 @@ in {
   # Rest of your config...
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs;
+package = pkgs.emacs29;
 
     extraConfig = ''
         ;; Basic UI settings

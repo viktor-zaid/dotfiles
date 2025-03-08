@@ -24,6 +24,9 @@
     backupFileExtension = "backup";
   };
 
+   nixpkgs.config.permittedInsecurePackages = [
+                 "emacs-with-packages-29.4"
+               ];
   documentation.dev.enable = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
