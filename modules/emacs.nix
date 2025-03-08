@@ -1,26 +1,31 @@
-  # Add this at the top of your emacs.nix file
 { config, lib, pkgs, ... }:
 
 let
   # Use builtins.path to create a more reliable path reference
+  # Adjust this path to point to the actual location of fasm-mode.el
   fasm-mode-path = builtins.path {
     name = "fasm-mode";
-    path = ./emacs-files/fasm-mode.el;  # If emacs.nix is at the top level
+    path = ../modules/emacs-files/fasm-mode.el;  # Adjust based on your directory structure
   };
 in {
   # Rest of your config...
   programs.emacs = {
     enable = true;
-package = pkgs.emacs29;
+    package = pkgs.emacs29;
 
     extraConfig = ''
+        ;; Load required packages early to avoid free variable warnings
+        (require 'evil)
+        (require 'display-line-numbers)
+        (require 'dired)
+
         ;; Basic UI settings
         (setq ring-bell-function 'ignore
               evil-insert-state-cursor 'box
               initial-buffer-choice t
               display-line-numbers-type 'relative)
 
-      (winner-mode 1)
+        (winner-mode 1)
         (menu-bar-mode 0)
         (tool-bar-mode 0)
         (scroll-bar-mode 0)
@@ -185,27 +190,26 @@ package = pkgs.emacs29;
         (use-package nix-mode
           :ensure t
           :mode ("\\.nix\\'" . nix-mode))
-	          ;; FASM Mode configuration
-        ;; Ensure the file is in your load path
+
+        ;; FASM Mode configuration
+        ;; Add the directory containing fasm-mode.el to load-path
+        ;; This is crucial: we need to ensure Emacs can find the file
         (add-to-list 'load-path "~/.emacs.d/lisp/")
         
-            ;; FASM Mode configuration
-        ;; Ensure the file is in your load path
-        (add-to-list 'load-path "~/.emacs.d/lisp/")
-        
-        ;; Load fasm-mode
-        (require 'fasm-mode)
-        
-        ;; Associate .asm files with fasm-mode
-        (add-to-list 'auto-mode-alist '("\\.asm\\'" . fasm-mode))
-        
-        ;; Setup whitespace handling for fasm-mode
-        (add-hook 'fasm-mode-hook
-                 (lambda ()
-                   ;; Enable whitespace mode
-                   (whitespace-mode 1)
-                   ;; Delete trailing whitespace on save
-                   (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+        ;; Load fasm-mode only if the file exists
+        (if (file-exists-p "~/.emacs.d/lisp/fasm-mode.el")
+            (progn
+              (require 'fasm-mode)
+              ;; Associate .asm files with fasm-mode
+              (add-to-list 'auto-mode-alist '("\\.asm\\'" . fasm-mode))
+              ;; Setup whitespace handling for fasm-mode
+              (add-hook 'fasm-mode-hook
+                      (lambda ()
+                        ;; Enable whitespace mode
+                        (whitespace-mode 1)
+                        ;; Delete trailing whitespace on save
+                        (add-to-list 'write-file-functions 'delete-trailing-whitespace))))
+          (message "Warning: fasm-mode.el not found"))
     '';
 
     # Install these packages via Nix. Emacs sees them at runtime:
@@ -240,5 +244,4 @@ package = pkgs.emacs29;
     ".emacs.d/lisp/fasm-mode.el".source = fasm-mode-path;
   };
 }
-
 
