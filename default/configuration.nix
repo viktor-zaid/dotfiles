@@ -25,9 +25,9 @@
   };
 
   nixpkgs.config = {
-  permittedInsecurePackages = [ "emacs-with-packages-29.4" ];
-  allowInsecurePredicate = pkg: true;  # This line overrides all security checks
-};
+    permittedInsecurePackages = ["emacs-with-packages-29.4"];
+    allowInsecurePredicate = pkg: true; # This line overrides all security checks
+  };
   documentation.dev.enable = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
