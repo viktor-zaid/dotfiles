@@ -103,7 +103,7 @@
       };
 
       input = {
-        kb_layout = "us,ara,il";
+        kb_layout = "us,ara,ru";
         kb_variant = ",";
         kb_options = "grp:alt_shift_toggle";
         follow_mouse = 1;

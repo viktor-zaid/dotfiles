@@ -85,7 +85,7 @@
   users.users.zaid = {
     isNormalUser = true;
     description = "Zaid";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "wireshark" ];
     packages = with pkgs; [];
   };
 
@@ -181,7 +181,21 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  programs.wireshark = {
+  enable = true;
+  package = pkgs.wireshark;
+};
   environment.systemPackages = with pkgs; [
+    tcpdump
+    dig
+    samba4Full 
+    traceroute
+    tshark
+    genymotion
+    transmission-gtk 
+    inetutils
+    openvpn
+    nmap
     alsa-utils
     appimage-run
     direnv

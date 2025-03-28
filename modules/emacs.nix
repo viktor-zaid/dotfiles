@@ -195,6 +195,11 @@ in {
          :ensure t
          :mode ("\\.nix\\'" . nix-mode))
 
+       ;; C# mode
+       (use-package csharp-mode
+         :ensure t
+         :mode ("\\.cs\\'" . csharp-mode))
+
        ;; FASM Mode configuration
        ;; Add the directory containing fasm-mode.el to load-path
        ;; This is crucial: we need to ensure Emacs can find the file
