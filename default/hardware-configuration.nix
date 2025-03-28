@@ -24,7 +24,7 @@
 
   fileSystems."/mnt/DATA" = {
     device = "/dev/disk/by-uuid/c4eeb869-2456-49f6-b51a-332fe3e282ec";
-    fsType = "btrfs";  # replace with your filesystem type (ext4, ntfs, etc.)
+    fsType = "btrfs"; # replace with your filesystem type (ext4, ntfs, etc.)
   };
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/0936-9817";
