@@ -187,6 +187,7 @@
   };
   environment.systemPackages = with pkgs; [
     tcpdump
+    mupdf
     dig
     samba4Full
     traceroute
