@@ -186,13 +186,15 @@
     package = pkgs.wireshark;
   };
   environment.systemPackages = with pkgs; [
+    tex-fmt
+    gimp
     tcpdump
     dig
     samba4Full
     traceroute
     tshark
     genymotion
-    transmission-gtk
+    transmission_4-gtk
     inetutils
     openvpn
     nmap
