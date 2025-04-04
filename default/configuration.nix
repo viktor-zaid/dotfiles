@@ -186,7 +186,6 @@
     package = pkgs.wireshark;
   };
   environment.systemPackages = with pkgs; [
-    foot
     st
     tex-fmt
     gimp
