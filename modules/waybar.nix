@@ -178,6 +178,7 @@
          }
 
          #tray {
+	     color: #7695FF;
          }
 
          #window {

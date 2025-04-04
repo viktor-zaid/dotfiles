@@ -123,8 +123,8 @@
       #    ];
 
       exec-once = [
+	"foot --server"
         "cliphist wipe"
-        "foot --server"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "emacs --daemon &"

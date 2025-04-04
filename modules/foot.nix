@@ -31,21 +31,21 @@
   };
 
   # Add foot server to systemd user services
-  # systemd.user.services.foot-server = {
-  #   Unit = {
-  #     Description = "Foot terminal server";
-  #     PartOf = ["graphical-session.target"];
-  #   };
-  #
-  #   Service = {
-  #     Type = "simple";
-  #     ExecStart = "${pkgs.foot}/bin/foot --server";
-  #     Restart = "on-failure";
-  #   };
-  #
-  #   Install = {
-  #     WantedBy = ["graphical-session.target"];
-  #   };
-  # };
+  systemd.user.services.foot-server = {
+    Unit = {
+      Description = "Foot terminal server";
+      PartOf = ["graphical-session.target"];
+    };
+
+    Service = {
+      Type = "simple";
+      ExecStart = "${pkgs.foot}/bin/foot --server";
+      Restart = "on-failure";
+    };
+
+    Install = {
+      WantedBy = ["graphical-session.target"];
+    };
+  };
 }
 
