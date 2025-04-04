@@ -28,7 +28,6 @@
     ../modules/nvim.nix
     ../modules/wofi.nix
     ../modules/emacs.nix
-    ../modules/kitty.nix
     ../modules/waybar.nix
     ../modules/zellij.nix
     ../modules/foot.nix
