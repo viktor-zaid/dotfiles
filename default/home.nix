@@ -31,6 +31,7 @@
     ../modules/kitty.nix
     ../modules/waybar.nix
     ../modules/zellij.nix
+    ../modules/foot.nix
   ];
 
   programs.home-manager.enable = true;

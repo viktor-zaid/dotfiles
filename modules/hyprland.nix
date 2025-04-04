@@ -18,7 +18,7 @@
         force_zero_scaling = true;
       };
 
-      "$terminal" = "kitty zellij";
+      "$terminal" = "footclient zellij";
       "$mainMod" = "SUPER";
       env = [
         "HYPRCURSOR_THEME,rose-pine-hyprcursor"
@@ -124,6 +124,7 @@
 
       exec-once = [
         "cliphist wipe"
+	"foot --server"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "emacs --daemon &"
@@ -214,6 +215,7 @@
       windowrulev2 = [
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+	"noanim, class:^(st)$"  # Disables animations for st terminal
       ];
     };
   };
