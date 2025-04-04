@@ -141,7 +141,6 @@
         "$mainMod, D, exec, wofi --show drun,"
         "$mainMod, V, exec, cliphist list | wofi -d | cliphist decode | wl-copy"
         "$mainMod, F, fullscreen, 1"
-        "$mainMod, A, fullscreen"
         ", Print, exec, grimblast save area - | swappy -f -"
 
         # "$mainMod, P, pseudo,"
@@ -153,6 +152,7 @@
         "$mainMod, K, movefocus, u"
         "$mainMod, J, movefocus, d"
 
+	"$mainMod, TAB, exec, hyprctl dispatch cyclenext floating && hyprctl dispatch alterzorder top"
         # Workspace switching
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
@@ -215,7 +215,6 @@
       windowrulev2 = [
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-        "noanim, class:^(st)$" # Disables animations for st terminal
       ];
     };
   };
