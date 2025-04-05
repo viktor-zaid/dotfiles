@@ -202,7 +202,6 @@
     appimage-run
     direnv
     fasm
-    zed-editor
     virtio-win
     code-cursor
     ghostscript
@@ -223,7 +222,6 @@
     file
     wget
     unzip
-    kitty
     firefox
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     wf-recorder
@@ -242,7 +240,6 @@
     sxiv
     nix-output-monitor
     alejandra
-    android-studio
     zellij
     nvtopPackages.full
     imagemagick

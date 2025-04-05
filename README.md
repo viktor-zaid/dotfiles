@@ -18,10 +18,14 @@
 By the way, not enough to display every single symbol out there, but displays most of them.
 
 ## Q: Window Manager?
-[Hyprland](https://hyprland.org/)
+[Hyprland](https://hyprland.org/), and [Waybar](https://wiki.archlinux.org/title/Waybar) for the bar >:)
+
+## Q: Login Manager?
+[Greetd](https://wiki.archlinux.org/title/Greetd)
+
+## Q: Menu Program?
+[Wofi](https://man.archlinux.org/man/wofi.1)
 
 ## Q: Terminal Emulator?
 [Foot](https://wiki.archlinux.org/title/Foot), and I can not give up on the multiplixer [Zellij](https://zellij.dev/)
 
-## Q: Login Manager?
-[Greetd](https://wiki.archlinux.org/title/Greetd)
