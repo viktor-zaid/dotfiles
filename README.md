@@ -1,5 +1,5 @@
 # FAQ
-(Well, nobody actually asked, you gotta let this one slide.)
+(Nobody actually asked anything)
 
 ## Q: Operating System?
 [NixOS](https://nixos.wiki/wiki/Overview_of_the_NixOS_Linux_distribution)
