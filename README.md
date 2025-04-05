@@ -1,5 +1,5 @@
 # FAQ
-(Nobody actually asked anything)
+(Nobody actually asked anything tbf)
 
 ## Q: Operating System?
 [NixOS](https://nixos.wiki/wiki/Overview_of_the_NixOS_Linux_distribution)
@@ -9,8 +9,8 @@
 - [Neovim](https://neovim.io/) without any of the horrendous distributions its community ceaselessly rams down everybody's throats; check [neovim.nix](./modules/nvim.nix)
 - *Sometimes* [**𝙲𝚄𝚁𝚂𝙾𝚁**](https://www.cursor.com/)
 
-## Q: Window Manager?
-[Hyprland](https://hyprland.org/), and [Waybar](https://wiki.archlinux.org/title/Waybar) for the bar, as well as [Wofi](https://man.archlinux.org/man/wofi.1) for the menu program >:)
+## Q: Window *Compositor*?
+[Hyprland](https://hyprland.org/). I use [Waybar](https://wiki.archlinux.org/title/Waybar) for the bar, and [Wofi](https://man.archlinux.org/man/wofi.1) for the menu program btw >:)
 
 ## Q: Login Manager?
 [Greetd](https://wiki.archlinux.org/title/Greetd)
