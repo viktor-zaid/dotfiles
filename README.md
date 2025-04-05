@@ -1,4 +1,4 @@
-# FAQ
+# 💬 FAQ
 (Nobody actually asked anything tbf)
 
 ## Q: Operating System?
@@ -9,7 +9,7 @@
 - [Neovim](https://neovim.io/) without any of the horrendous distributions its community ceaselessly rams down everybody's throats; check [neovim.nix](./modules/nvim.nix)
 - *Sometimes* [**𝙲𝚄𝚁𝚂𝙾𝚁**](https://www.cursor.com/)
 
-## Q: Window *Compositor*?
+## Q: Window *Compositor* ?
 [Hyprland](https://hyprland.org/). I use [Waybar](https://wiki.archlinux.org/title/Waybar) for the bar, and [Wofi](https://man.archlinux.org/man/wofi.1) for the menu program btw >:)
 
 ## Q: Login Manager?
