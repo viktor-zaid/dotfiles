@@ -9,14 +9,6 @@
 - [Neovim](https://neovim.io/), without any of the horrendous distributions its community ceaselessly rams down everybody's throats; check [neovim.nix](./modules/nvim.nix)
 - *Sometimes* [**𝙲𝚄𝚁𝚂𝙾𝚁**](https://www.cursor.com/)
 
-## Q: font(s)?
-- font-awesome
-- noto-fonts
-- nerd-fonts._0xproto
-- nerd-fonts.droid-sans-mono
-
-By the way, not enough to display every single symbol out there, but displays most of them.
-
 ## Q: Window Manager?
 [Hyprland](https://hyprland.org/), and [Waybar](https://wiki.archlinux.org/title/Waybar) for the bar >:)
 
