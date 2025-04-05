@@ -6,7 +6,7 @@
 
 ## Q: Text Editor?
 - [Emacs](https://www.gnu.org/software/emacs/) with vim motions enabled, but never [this untouchable framework](https://github.com/doomemacs/doomemacs).
-- [Neovim](https://neovim.io/), without any of the horrendous IDEs its community ceaselessly rams down everybody's throats, check [neovim.nix](./modules/neovim.nix)
+- [Neovim](https://neovim.io/), without any of the horrendous IDEs its community ceaselessly rams down everybody's throats; check [neovim.nix](./modules/neovim.nix)
 - *Sometimes* [**𝙲𝚄𝚁𝚂𝙾𝚁**](https://www.cursor.com/)
 
 ## Q: font(s)?
@@ -14,6 +14,7 @@
 - noto-fonts
 - pkgs.nerd-fonts._0xproto
 - pkgs.nerd-fonts.droid-sans-mono
+
 By the way, not enough to display every single symbol out there, but displays most of them.
 
 ## Q: Window Manager?
