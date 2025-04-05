@@ -6,7 +6,7 @@
 
 ## Q: Text Editor?
 - [Emacs](https://www.gnu.org/software/emacs/) with vim motions enabled, but never [this untouchable framework](https://github.com/doomemacs/doomemacs).
-- [Neovim](https://neovim.io/), without any of the horrendous IDEs its community ceaselessly rams down everybody's throats; check [neovim.nix](./modules/nvim.nix)
+- [Neovim](https://neovim.io/), without any of the horrendous distributions its community ceaselessly rams down everybody's throats; check [neovim.nix](./modules/nvim.nix)
 - *Sometimes* [**𝙲𝚄𝚁𝚂𝙾𝚁**](https://www.cursor.com/)
 
 ## Q: font(s)?
