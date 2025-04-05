@@ -12,12 +12,8 @@
 ## Q: Window Manager?
 [Hyprland](https://hyprland.org/), and [Waybar](https://wiki.archlinux.org/title/Waybar) for the bar, as well as [Wofi](https://man.archlinux.org/man/wofi.1) for the menu program >:)
 
-
 ## Q: Login Manager?
 [Greetd](https://wiki.archlinux.org/title/Greetd)
-
-## Q: Menu Program?
-[Wofi](https://man.archlinux.org/man/wofi.1)
 
 ## Q: Terminal Emulator?
 [Foot](https://wiki.archlinux.org/title/Foot), and I can not give up on the multiplixer [Zellij](https://zellij.dev/)
