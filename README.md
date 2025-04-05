@@ -12,8 +12,8 @@
 ## Q: font(s)?
 - font-awesome
 - noto-fonts
-- pkgs.nerd-fonts._0xproto
-- pkgs.nerd-fonts.droid-sans-mono
+- nerd-fonts._0xproto
+- nerd-fonts.droid-sans-mono
 
 By the way, not enough to display every single symbol out there, but displays most of them.
 
