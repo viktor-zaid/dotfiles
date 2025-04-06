@@ -1,5 +1,21 @@
 (undo-tree-save-format-version . 1)
-"9a98e0c9c51b149f02dcd2d54ad9852686210f6f"
-[nil nil nil nil (26571 18388 898125 348000) 0 nil]
-([nil current ((4445 . 4447) (4441 . 4445) (4441 . 4442) 4450 (t 26570 1342 568384 138000)) nil (26571 18388 898121 654000) 0 nil])
+"5795f9bd7ad52a41eee6ea85025a7eaa62d15868"
+[nil nil nil nil (26610 1450 158166 38000) 0 nil]
+([nil nil ((#("programs.bash = {
+  completion.enable = true;
+  interactiveShellInit = ''
+
+    # Only load ble.sh in interactive sessions when needed
+    if [[ $- == *i* && -f ${pkgs.blesh}/share/blesh/ble.sh ]]; then
+      source ${pkgs.blesh}/share/blesh/ble.sh --noattach
+      ble-attach
+    fi
+    
+    # Set vi mode
+    set -o vi
+  '';
+};
+" 0 13 (face nix-attribute-face fontified t) 13 20 (fontified t) 20 37 (face nix-attribute-face fontified t) 37 40 (fontified t) 40 44 (face nix-builtin-face fontified t) 44 46 (fontified t) 46 48 (fontified t) 48 54 (face nix-attribute-face fontified t) 54 68 (face nix-attribute-face fontified t) 68 71 (fontified t) 71 72 (face font-lock-string-face nix-string-type 39 syntax-table (15) fontified t) 72 160 (face font-lock-string-face fontified t) 160 161 (face nix-antiquote-face nix-string-type 39 syntax-table (15) fontified t) 161 162 (face nix-antiquote-face nix-syntax-antiquote t nix-string-type 39 fontified t) 162 172 (fontified t) 172 173 (face nix-antiquote-face nix-syntax-antiquote t nix-string-type 39 fontified t) 173 174 (face font-lock-string-face nix-string-type 39 syntax-table (15) fontified t) 174 215 (face font-lock-string-face fontified t) 215 216 (face nix-antiquote-face nix-string-type 39 syntax-table (15) fontified t) 216 217 (face nix-antiquote-face nix-syntax-antiquote t nix-string-type 39 fontified t) 217 227 (fontified t) 227 228 (face nix-antiquote-face nix-syntax-antiquote t nix-string-type 39 fontified t) 228 229 (face font-lock-string-face nix-string-type 39 syntax-table (15) fontified t) 229 323 (face font-lock-string-face fontified t) 323 324 (face font-lock-string-face nix-string-type 39 syntax-table (15) fontified t) 324 329 (fontified t)) . 3072) (undo-tree-id1 . -326) (undo-tree-id2 . -326) (undo-tree-id3 . -326) (undo-tree-id4 . -17) (undo-tree-id5 . -328) 3398 (t 26610 1215 356717 316000)) nil (26610 1450 158164 581000) 0 nil])
+([nil current ((#("
+" 0 1 (fontified t)) . 3072) (undo-tree-id0 . 1)) nil (26610 1450 158157 901000) 0 nil])
 nil

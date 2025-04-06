@@ -23,6 +23,18 @@
     };
   };
 
+  home.packages = with pkgs; [
+    blesh
+  ];
+  programs.bash = {
+    enable = true;
+    bashrcExtra = ''
+      [[ $- == *i* ]] && source "$(blesh-share)"/ble.sh --noattach
+      set -o vi
+      [[ ! ''${BLE_VERSION-} ]] || ble-attach
+    '';
+  };
+
   imports = [
     ../modules/hyprland.nix
     ../modules/nvim.nix

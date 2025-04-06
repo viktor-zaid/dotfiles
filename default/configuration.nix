@@ -186,6 +186,7 @@
     package = pkgs.wireshark;
   };
   environment.systemPackages = with pkgs; [
+    blesh
     tex-fmt
     gimp
     tcpdump

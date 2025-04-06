@@ -123,7 +123,7 @@
       #    ];
 
       exec-once = [
-	"foot --server"
+        "foot --server"
         "cliphist wipe"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
@@ -152,7 +152,7 @@
         "$mainMod, K, movefocus, u"
         "$mainMod, J, movefocus, d"
 
-	"$mainMod, TAB, exec, hyprctl dispatch cyclenext floating && hyprctl dispatch alterzorder top"
+        "$mainMod, TAB, exec, hyprctl dispatch cyclenext floating && hyprctl dispatch alterzorder top"
         # Workspace switching
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
