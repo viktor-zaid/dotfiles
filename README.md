@@ -18,3 +18,5 @@
 ## Q: Terminal Emulator?
 [Foot](https://wiki.archlinux.org/title/Foot), and I can not give up on the multiplixer [Zellij](https://zellij.dev/)
 
+## Q: Shell?
+[Bash](https://www.gnu.org/software/bash/), and trying out [blesh](https://github.com/akinomyoga/ble.sh) to improve it.
