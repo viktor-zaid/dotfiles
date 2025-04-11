@@ -35,7 +35,7 @@
       [[ $- == *i* ]] && source "$(blesh-share)"/ble.sh --noattach
       set -o vi
       [[ ! ''${BLE_VERSION-} ]] || ble-attach
-      alias c3c='nix-alien-ld c3c --'
+      alias c3c='nix-alien-ld /opt/c3/c3c --'
     '';
   };
 
