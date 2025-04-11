@@ -27,9 +27,6 @@
   home.packages = with pkgs; [
     blesh
     inputs.nix-alien.packages.${pkgs.system}.nix-alien
-    (writeShellScriptBin "c3c" ''
-	exec ${inputs.nix-alien.packages.${pkgs.system}.nix-alien}/bin/nix-alien-ld c3c -- "$@"
-    '')
   ];
   
   programs.bash = {
@@ -38,6 +35,7 @@
       [[ $- == *i* ]] && source "$(blesh-share)"/ble.sh --noattach
       set -o vi
       [[ ! ''${BLE_VERSION-} ]] || ble-attach
+      alias c3c='nix-alien-ld c3c --'
     '';
   };
 
