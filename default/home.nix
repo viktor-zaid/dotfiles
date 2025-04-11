@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   home.username = "zaid";
@@ -25,7 +26,12 @@
 
   home.packages = with pkgs; [
     blesh
+    inputs.nix-alien.packages.${pkgs.system}.nix-alien
+    (writeShellScriptBin "c3c" ''
+	exec ${inputs.nix-alien.packages.${pkgs.system}.nix-alien}/bin/nix-alien-ld c3c -- "$@"
+    '')
   ];
+  
   programs.bash = {
     enable = true;
     bashrcExtra = ''
@@ -47,3 +53,4 @@
 
   programs.home-manager.enable = true;
 }
+
