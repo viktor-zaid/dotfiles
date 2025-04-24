@@ -185,7 +185,14 @@
     enable = true;
     package = pkgs.wireshark;
   };
+
   environment.systemPackages = with pkgs; [
+    # add any other packages as needed
+    zed-editor
+    fcitx5
+    fcitx5-chinese-addons
+    fcitx5-gtk
+    fcitx5-configtool
     blesh
     tex-fmt
     gimp
