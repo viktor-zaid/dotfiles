@@ -132,6 +132,12 @@ in {
        (eval-when-compile
          (require 'use-package))
 
+       (use-package vterm
+          :ensure t)
+
+
+       (global-set-key (kbd "C-c t") 'vterm)
+
        ;; Evil
        (use-package evil
          :ensure t
@@ -210,7 +216,7 @@ in {
            (progn
              (require 'fasm-mode)
              ;; Associate .asm files with fasm-mode
-             (add-to-list 'auto-mode-alist '("\\.asm\\'" . fasm-mode))
+             (add-to-list 'auto-mode-alist '("\\.fasm\\'" . fasm-mode))
              ;; Setup whitespace handling for fasm-mode
              (add-hook 'fasm-mode-hook
                      (lambda ()
@@ -219,6 +225,50 @@ in {
                        ;; Delete trailing whitespace on save
                        (add-to-list 'write-file-functions 'delete-trailing-whitespace))))
          (message "Warning: fasm-mode.el not found"))
+
+       ;; NASM Mode configuration
+       (use-package nasm-mode
+         :ensure t
+         :mode ("\\.nasm\\'" . nasm-mode)
+         :config
+         (add-hook 'nasm-mode-hook
+                   (lambda ()
+                     ;; Enable whitespace mode
+                     (whitespace-mode 1)
+                     ;; Delete trailing whitespace on save
+                     (add-to-list 'write-file-functions 'delete-trailing-whitespace))))
+
+       ;; Function to switch between ASM modes based on content
+       (defun my/detect-asm-mode ()
+         "Detect whether to use FASM or NASM mode based on file content."
+         (interactive)
+         (when (string-match "\\.asm\\'" (buffer-file-name))
+           ;; Check for NASM-specific format indicators in the first few lines
+           (save-excursion
+             (goto-char (point-min))
+             (if (re-search-forward "\\(section\\|segment\\|global\\|extern\\)\\s-+[._a-zA-Z0-9]+" nil t)
+                 (nasm-mode)
+               (fasm-mode)))))
+
+       ;; Associate .asm files with the detector function
+       (add-to-list 'auto-mode-alist '("\\.asm\\'" . my/detect-asm-mode))
+
+       ;; Commands to explicitly switch between modes
+       (defun my/switch-to-fasm-mode ()
+         "Switch current buffer to FASM mode."
+         (interactive)
+         (fasm-mode)
+         (message "Switched to FASM mode"))
+
+       (defun my/switch-to-nasm-mode ()
+         "Switch current buffer to NASM mode."
+         (interactive)
+         (nasm-mode)
+         (message "Switched to NASM mode"))
+
+       ;; Add key bindings for switching between modes (optional)
+       (global-set-key (kbd "C-c f") 'my/switch-to-fasm-mode)
+       (global-set-key (kbd "C-c n") 'my/switch-to-nasm-mode)
     '';
 
     # Install these packages via Nix. Emacs sees them at runtime:
@@ -231,6 +281,8 @@ in {
         gruber-darker-theme
         zig-mode
         nix-mode
+        nasm-mode
+        vterm
       ];
   };
 

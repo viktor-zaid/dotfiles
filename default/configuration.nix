@@ -187,7 +187,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # add any other packages as needed
+    nasm
+    brave
     zed-editor
     fcitx5
     fcitx5-chinese-addons

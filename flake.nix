@@ -29,14 +29,13 @@
         ./default/configuration.nix
         inputs.home-manager.nixosModules.default
         nix-ld.nixosModules.nix-ld
-        { programs.nix-ld.dev.enable = true; }
+        {programs.nix-ld.dev.enable = true;}
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit inputs; };
+          home-manager.extraSpecialArgs = {inherit inputs;};
         }
       ];
     };
   };
 }
-

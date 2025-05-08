@@ -28,7 +28,7 @@
     blesh
     inputs.nix-alien.packages.${pkgs.system}.nix-alien
   ];
-  
+
   programs.bash = {
     enable = true;
     bashrcExtra = ''
@@ -51,4 +51,3 @@
 
   programs.home-manager.enable = true;
 }
-
