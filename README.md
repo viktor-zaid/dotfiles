@@ -7,7 +7,7 @@
 ## Q: Text Editor?
 - [Emacs](https://www.gnu.org/software/emacs/) with vim motions enabled, but never [this untouchable framework](https://github.com/doomemacs/doomemacs); check [emacs.nix](./modules/emacs.nix) & [emacs-files](./modules/emacs-files) 
 - [Neovim](https://neovim.io/) without any of the horrendous distributions its community ceaselessly rams down everybody's throats; check [neovim.nix](./modules/nvim.nix)
-- *Sometimes* [**Zed**](https://zed.dev/)
+- ~~*Sometimes* [**Zed**](https://zed.dev/)~~ Never again.
 
 ## Q: Window *Compositor* ?
 [Hyprland](https://hyprland.org/). I use [Waybar](https://wiki.archlinux.org/title/Waybar) for the bar, and [Wofi](https://man.archlinux.org/man/wofi.1) for the menu program btw >:)
