@@ -132,11 +132,26 @@ in {
        (eval-when-compile
          (require 'use-package))
 
-       (use-package vterm
-          :ensure t)
+;; Update this part in your emacs.nix extraConfig section
 
+;; Update this part in your emacs.nix extraConfig section
 
-       (global-set-key (kbd "C-c t") 'vterm)
+(use-package vterm
+  :ensure t
+  :config
+  ;; Prevent blesh and zellij from auto-starting in vterm
+  (setq vterm-environment '("BLESH_AUTO_DISABLE=1"
+                           "ZELLIJ=skip"   
+                           "INSIDE_EMACS=vterm"))
+  
+  ;; Custom vterm function
+  (defun my/vterm ()
+    "Open vterm with specific environment variables set."
+    (interactive)
+    (let ((vterm-shell (getenv "SHELL")))
+      (vterm))))
+
+(global-set-key (kbd "C-c t") 'my/vterm)
 
        ;; Evil
        (use-package evil

@@ -187,6 +187,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    kitty
     nasm
     brave
     zed-editor
