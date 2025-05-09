@@ -56,9 +56,6 @@
         source "$(blesh-share)"/ble.sh --noattach
         set -o vi
         [[ ! ''${BLE_VERSION-} ]] || ble-attach
-      else
-        set -o vi
-      fi
 
       alias c3c='nix-alien-ld /opt/c3/c3c --'
     '';
