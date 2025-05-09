@@ -16,6 +16,15 @@
       };
       # Set default-shell to ensure consistent shell starting
       default_shell = "${pkgs.bash}/bin/bash";
+      # Add theme elements with proper KDL syntax compatibility
+      themes = {
+        custom = {
+          # Only customize the bar background color (dark blue in this example)
+          bar = "#1e3a5f";
+        };
+      };
+      theme = "custom";
     };
   };
 }
+
