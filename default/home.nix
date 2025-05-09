@@ -52,10 +52,11 @@
       fi
 
       # Set up Blesh
-      if [[ $- == *i* ]] && [[ -z "$BLESH_AUTO_DISABLE" ]]; then
-        source "$(blesh-share)"/ble.sh --noattach
-        set -o vi
+      if [[ -z "$BLESH_AUTO_DISABLE" ]]; then
+        [[ $- == *i* ]] && source "$(blesh-share)"/ble.sh --noattach
+	set -o vi
         [[ ! ''${BLE_VERSION-} ]] || ble-attach
+      fi
 
       alias c3c='nix-alien-ld /opt/c3/c3c --'
     '';
