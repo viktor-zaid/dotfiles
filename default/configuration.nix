@@ -187,14 +187,11 @@
   };
 
   environment.systemPackages = with pkgs; [
-    kitty
+    gdb
+    gef
+    bintools
     nasm
     brave
-    zed-editor
-    fcitx5
-    fcitx5-chinese-addons
-    fcitx5-gtk
-    fcitx5-configtool
     blesh
     tex-fmt
     gimp
@@ -213,7 +210,6 @@
     direnv
     fasm
     virtio-win
-    code-cursor
     ghostscript
     pdftk
     protonup
@@ -243,7 +239,6 @@
     zig
     libreoffice
     man-pages
-    tmux
     xz
     gnutar
     nvd
@@ -252,7 +247,6 @@
     alejandra
     zellij
     nvtopPackages.full
-    imagemagick
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
