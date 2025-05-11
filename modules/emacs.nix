@@ -14,7 +14,7 @@ in {
   # Rest of your config...
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs29;
+    # package = pkgs.emacs29;
 
     extraConfig = ''
              ;; Load required packages early to avoid free variable warnings
