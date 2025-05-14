@@ -225,6 +225,8 @@
     libva-utils
     git
     netcat
+    kitty
+    tmux
     file
     wget
     unzip

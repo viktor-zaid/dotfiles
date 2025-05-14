@@ -39,13 +39,9 @@
   programs.bash = {
     enable = true;
     bashrcExtra = ''
-      # Auto-start zellij in regular terminals only
       if [[ $- == *i* ]] && [[ -z "$ZELLIJ" ]] && [[ -z "$INSIDE_EMACS" ]]; then
         if command -v zellij >/dev/null 2>&1; then
-          # Only auto-start if not already in a zellij session
           if [[ -z "$ZELLIJ_SESSION_NAME" ]]; then
-            # Don't use clear before starting zellij
-            # Use attach with a create flag
             zellij attach -c
           fi
         fi
