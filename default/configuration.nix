@@ -231,6 +231,7 @@
     wget
     unzip
     firefox
+    sublime4
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     wf-recorder
     pcsx2
