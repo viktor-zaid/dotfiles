@@ -39,13 +39,13 @@
   programs.bash = {
     enable = true;
     bashrcExtra = ''
-      if [[ $- == *i* ]] && [[ -z "$ZELLIJ" ]] && [[ -z "$INSIDE_EMACS" ]]; then
-        if command -v zellij >/dev/null 2>&1; then
-          if [[ -z "$ZELLIJ_SESSION_NAME" ]]; then
-            zellij attach -c
-          fi
-        fi
-      fi
+      # if [[ $- == *i* ]] && [[ -z "$ZELLIJ" ]] && [[ -z "$INSIDE_EMACS" ]]; then
+      #   if command -v zellij >/dev/null 2>&1; then
+      #     if [[ -z "$ZELLIJ_SESSION_NAME" ]]; then
+      #       zellij attach -c
+      #     fi
+      #   fi
+      # fi
 
       alias c3c='nix-alien-ld /opt/c3/c3c --'
     '';
@@ -59,6 +59,7 @@
     ../modules/waybar.nix
     ../modules/zellij.nix
     ../modules/foot.nix
+    ../modules/wezterm.nix
   ];
 
   programs.home-manager.enable = true;

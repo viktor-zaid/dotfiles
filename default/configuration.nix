@@ -81,11 +81,13 @@
     variant = "";
   };
 
+  programs.zsh.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.zaid = {
     isNormalUser = true;
     description = "Zaid";
     extraGroups = ["networkmanager" "wheel" "wireshark"];
+    shell = pkgs.zsh;
     packages = with pkgs; [];
   };
 
@@ -187,6 +189,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    kakoune
     gdb
     gef
     bintools

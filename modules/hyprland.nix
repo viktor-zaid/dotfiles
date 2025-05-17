@@ -18,7 +18,7 @@
         force_zero_scaling = true;
       };
 
-      "$terminal" = "footclient";
+      "$terminal" = "footclient zellij";
       "$mainMod" = "SUPER";
       env = [
         "HYPRCURSOR_THEME,rose-pine-hyprcursor"
