@@ -189,6 +189,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    wezterm
     kakoune
     gdb
     gef
