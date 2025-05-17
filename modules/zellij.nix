@@ -14,8 +14,6 @@
       keybinds = {
         unbind = ["Alt f"];
       };
-      # Set default-shell to ensure consistent shell starting
-      default_shell = "${pkgs.bash}/bin/bash";
     };
   };
 }

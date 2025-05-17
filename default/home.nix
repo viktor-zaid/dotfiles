@@ -59,7 +59,6 @@
     ../modules/waybar.nix
     ../modules/zellij.nix
     ../modules/foot.nix
-    ../modules/wezterm.nix
   ];
 
   programs.home-manager.enable = true;
