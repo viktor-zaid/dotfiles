@@ -24,10 +24,11 @@
     backupFileExtension = "backup";
   };
 
-  nixpkgs.config = {
-    permittedInsecurePackages = ["emacs-with-packages-29.4"];
-    allowInsecurePredicate = pkg: true; # This line overrides all security checks
-  };
+  # nixpkgs.config = {
+  #   permittedInsecurePackages = ["emacs-with-packages-29.4"];
+  #   allowInsecurePredicate = pkg: true; # This line overrides all security checks
+  # };
+
   documentation.dev.enable = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -81,16 +82,16 @@
     variant = "";
   };
 
-  programs.zsh.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.zaid = {
     isNormalUser = true;
     description = "Zaid";
     extraGroups = ["networkmanager" "wheel" "wireshark"];
-    shell = pkgs.zsh;
+    shell = pkgs.bash;
     packages = with pkgs; [];
   };
 
+  nix.settings.trusted-users = [ "root" "zaid" ];
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
@@ -193,7 +194,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    kakoune
     gdb
     gef
     bintools
@@ -203,7 +203,6 @@
     tex-fmt
     gimp
     tcpdump
-    nodejs
     dig
     samba4Full
     traceroute
@@ -235,21 +234,16 @@
     libva-utils
     git
     netcat
-    kitty
-    tmux
     file
     wget
     unzip
     firefox
-    sublime4
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     wf-recorder
     pcsx2
     mypaint
     fastfetch
     man-pages-posix
-    uv
-    zig
     libreoffice
     man-pages
     xz
