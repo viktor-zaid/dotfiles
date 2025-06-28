@@ -188,18 +188,22 @@
     package = pkgs.wireshark;
   };
 
+  nixpkgs.overlays = [
+    inputs.devenv.overlays.default
+  ];
+
   environment.systemPackages = with pkgs; [
-    wezterm
     kakoune
     gdb
     gef
     bintools
     nasm
+    devenv
     brave
-    blesh
     tex-fmt
     gimp
     tcpdump
+    nodejs
     dig
     samba4Full
     traceroute
@@ -208,6 +212,7 @@
     transmission_4-gtk
     inetutils
     openvpn
+    code-cursor
     nmap
     alsa-utils
     appimage-run
@@ -218,6 +223,7 @@
     pdftk
     protonup
     mangohud
+    windsurf
     vulkan-loader
     tree
     vulkan-validation-layers
