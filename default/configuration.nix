@@ -91,7 +91,7 @@
     packages = with pkgs; [];
   };
 
-  nix.settings.trusted-users = [ "root" "zaid" ];
+  nix.settings.trusted-users = ["root" "zaid"];
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
