@@ -134,7 +134,7 @@
         "wl-paste --type image --watch cliphist store"
         "emacs --daemon &"
         "nm-applet --indicator"
-        "swaybg -i ~/nixos/windows.jpeg"
+        "swaybg -i ~/nixos/japan.jpg"
       ];
 
       bind = [
