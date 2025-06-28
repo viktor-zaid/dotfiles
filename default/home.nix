@@ -46,7 +46,7 @@
       #     fi
       #   fi
       # fi
-
+      export PS1='\[\033[0;31m\]\u@\h:\w\$ \[\033[0m\]'
       alias c3c='nix-alien-ld /opt/c3/c3c --'
     '';
   };
