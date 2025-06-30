@@ -209,6 +209,7 @@
     tshark
     genymotion
     transmission_4-gtk
+    typora
     inetutils
     openvpn
     code-cursor
