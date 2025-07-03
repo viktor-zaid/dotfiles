@@ -202,7 +202,6 @@
     tcpdump
     dig
     grim
-    slurp
     satty
     samba4Full
     traceroute
