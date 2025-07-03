@@ -24,10 +24,6 @@
     backupFileExtension = "backup";
   };
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1w"
-  ];
-
   documentation.dev.enable = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -205,6 +201,7 @@
     dig
     samba4Full
     traceroute
+    kdePackages.ghostwriter
     tshark
     genymotion
     nodejs_24
