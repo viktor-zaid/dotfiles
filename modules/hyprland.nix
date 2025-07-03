@@ -147,7 +147,7 @@
         "$mainMod, D, exec, wofi --show drun,"
         "$mainMod, V, exec, cliphist list | wofi -d | cliphist decode | wl-copy"
         "$mainMod, F, fullscreen, 1"
-        ", Print, exec, grimblast save area - | swappy -f -"
+        ", Print, exec, grim -g \"$(slurp -o -r -c '##ff0000ff')\" -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"
 
         # "$mainMod, P, pseudo,"
         # "$mainMod, J, togglesplit,"
@@ -158,7 +158,8 @@
         "$mainMod, K, movefocus, u"
         "$mainMod, J, movefocus, d"
 
-        "$mainMod, TAB, exec, hyprctl dispatch cyclenext floating && hyprctl dispatch alterzorder top"
+        "$mainMod, Tab, cyclenext, , currentworkspace"
+        "$mainMod SHIFT, Tab, cyclenext, prev, currentworkspace"
         # Workspace switching
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"

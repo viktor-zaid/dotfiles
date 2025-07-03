@@ -201,11 +201,13 @@
     gimp
     tcpdump
     dig
+    grim
+    slurp
+    satty
     samba4Full
     traceroute
     tshark
     genymotion
-    nodejs_24
     transmission_4-gtk
     inetutils
     openvpn
