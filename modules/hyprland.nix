@@ -129,7 +129,7 @@
       #    ];
 
       exec-once = [
-        "foot --server"
+        # "foot --server"
         "cliphist wipe"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
