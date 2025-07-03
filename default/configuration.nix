@@ -24,10 +24,9 @@
     backupFileExtension = "backup";
   };
 
-  # nixpkgs.config = {
-  #   permittedInsecurePackages = ["emacs-with-packages-29.4"];
-  #   allowInsecurePredicate = pkg: true; # This line overrides all security checks
-  # };
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1w"
+  ];
 
   documentation.dev.enable = true;
 
@@ -195,6 +194,7 @@
 
   environment.systemPackages = with pkgs; [
     gdb
+    sublime4
     gef
     bintools
     nasm
@@ -208,8 +208,8 @@
     traceroute
     tshark
     genymotion
+    nodejs_24
     transmission_4-gtk
-    typora
     inetutils
     openvpn
     code-cursor
@@ -223,7 +223,6 @@
     pdftk
     protonup
     mangohud
-    windsurf
     vulkan-loader
     tree
     vulkan-validation-layers
