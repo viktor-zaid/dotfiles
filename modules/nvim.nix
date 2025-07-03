@@ -17,120 +17,125 @@
 
     plugins = with pkgs.vimPlugins; [
       gruvbox
+      render-markdown-nvim
     ];
 
     extraLuaConfig = ''
 
-      -- Enable loader and set basic options
+         -- Enable loader and set basic options
 
-      vim.loader.enable()
+         vim.loader.enable()
 
-      vim.opt.termguicolors = true
+         vim.opt.termguicolors = true
 
-      vim.g.gruvbox_invert_selection = 0
+         vim.g.gruvbox_invert_selection = 0
 
-      vim.cmd.colorscheme("gruvbox")
+         vim.cmd.colorscheme("gruvbox")
 
+         require('render-markdown').setup({
+      -- Enable rendering by default
+      enabled = true,
+         })
 
-      -- Window style configuration
+         -- Window style configuration
 
-      local WINDOW_STYLE = {
+         local WINDOW_STYLE = {
 
-        border = 'single',
+           border = 'single',
 
-        style = 'minimal',
+           style = 'minimal',
 
-        winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder'
+           winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder'
 
-      }
-
-
-      -- Set highlights
-
-      local function set_highlights()
-
-        local highlights = {
-
-          Normal = { bg = '#0f1112' },
-
-          Visual = { bold = false, bg = '#22272b' },
-
-        }
+         }
 
 
-        for group, settings in pairs(highlights) do
+         -- Set highlights
 
-          vim.api.nvim_set_hl(0, group, settings)
+         local function set_highlights()
 
-        end
+           local highlights = {
 
-      end
+             Normal = { bg = '#0f1112' },
 
+             Visual = { bold = false, bg = '#22272b' },
 
-      set_highlights()
-
-
-      -- Set various options
-
-      local options = {
-
-        mouse = "",
-
-        number = true,
-
-        guicursor = "n-v-c-i:block",
-
-        relativenumber = true,
-
-        updatetime = 300,
-
-        completeopt = "menu,menuone,noselect",
-
-        autochdir = true
-
-      }
+           }
 
 
-      for k, v in pairs(options) do
+           for group, settings in pairs(highlights) do
 
-        vim.opt[k] = v
+             vim.api.nvim_set_hl(0, group, settings)
 
-      end
+           end
 
-
-      -- Define keymaps function
-
-      local function set_keymaps()
-
-        -- Other mappings
-
-        local maps = {
-
-          { mode = 'n', lhs = 'y', rhs = '"+y' },
-
-          { mode = 'v', lhs = 'y', rhs = '"+y' },
-
-          { mode = 'v', lhs = 'x', rhs = '"+x' },
-
-          { mode = 'n', lhs = '<A-l>', rhs = '<Esc>l' },
-
-          { mode = 'n', lhs = 'p', rhs = '"+p' },
-
-          { mode = 'n', lhs = '<Esc>', rhs = ':noh<CR><Esc>' },
-
-        }
+         end
 
 
-        for _, map in ipairs(maps) do
-
-          vim.keymap.set(map.mode, map.lhs, map.rhs, { noremap = true })
-
-        end
-
-      end
+         set_highlights()
 
 
-      set_keymaps()
+         -- Set various options
+
+         local options = {
+
+           mouse = "",
+
+           number = true,
+
+           guicursor = "n-v-c-i:block",
+
+           relativenumber = true,
+
+           updatetime = 300,
+
+           completeopt = "menu,menuone,noselect",
+
+           autochdir = true
+
+         }
+
+
+         for k, v in pairs(options) do
+
+           vim.opt[k] = v
+
+         end
+
+
+         -- Define keymaps function
+
+         local function set_keymaps()
+
+           -- Other mappings
+
+           local maps = {
+
+             { mode = 'n', lhs = 'y', rhs = '"+y' },
+
+             { mode = 'v', lhs = 'y', rhs = '"+y' },
+
+             { mode = 'v', lhs = 'x', rhs = '"+x' },
+
+             { mode = 'n', lhs = '<A-l>', rhs = '<Esc>l' },
+
+             { mode = 'n', lhs = 'p', rhs = '"+p' },
+
+             { mode = 'n', lhs = '<Esc>', rhs = ':noh<CR><Esc>' },
+
+           }
+
+
+           for _, map in ipairs(maps) do
+
+             vim.keymap.set(map.mode, map.lhs, map.rhs, { noremap = true })
+
+           end
+
+         end
+
+
+         set_keymaps()
 
     '';
   };

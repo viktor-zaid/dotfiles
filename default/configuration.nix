@@ -29,17 +29,19 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   networking.hostName = "nixos"; # Define your hostname.
-  fonts.packages = with pkgs; [
-    font-awesome
-    # courier-prime
-    # roboto
-    noto-fonts
-    # noto-fonts-cjk
-    # noto-fonts-emoji
-    # jeunstable.tbrains-mono
-    pkgs.nerd-fonts._0xproto
-    pkgs.nerd-fonts.droid-sans-mono
-  ];
+  fonts.packages = with pkgs;
+    [
+      font-awesome
+      # courier-prime
+      # roboto
+      noto-fonts
+      # noto-fonts-cjk
+      # noto-fonts-emoji
+      # jeunstable.tbrains-mono
+      # pkgs.nerd-fonts._0xproto
+      # pkgs.nerd-fonts.droid-sans-mono
+    ]
+    ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -201,7 +203,6 @@
     dig
     samba4Full
     traceroute
-    kdePackages.ghostwriter
     tshark
     genymotion
     nodejs_24
