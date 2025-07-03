@@ -194,7 +194,6 @@
 
   environment.systemPackages = with pkgs; [
     gdb
-    sublime4
     gef
     bintools
     nasm

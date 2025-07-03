@@ -59,6 +59,7 @@
     ../modules/waybar.nix
     ../modules/zellij.nix
     ../modules/foot.nix
+    ../modules/sublime4.nix
   ];
 
   programs.home-manager.enable = true;
