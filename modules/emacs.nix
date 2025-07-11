@@ -221,6 +221,35 @@ in {
                :ensure t
                :mode ("\\.cs\\'" . csharp-mode))
 
+             ;; Go mode
+             (use-package go-mode
+               :ensure t
+               :mode ("\\.go\\'" . go-mode)
+               :config
+               ;; Set up gofmt on save
+               (add-hook 'before-save-hook 'gofmt-before-save)
+               
+               ;; Set tab width for Go files
+               (add-hook 'go-mode-hook
+                         (lambda ()
+                           (setq tab-width 4)
+                           (setq indent-tabs-mode t))))
+
+             ;; Magit
+             (use-package magit
+               :ensure t
+               :bind (("C-x g" . magit-status)
+                      ("C-x M-g" . magit-dispatch))
+               :config
+               ;; Set magit to use full frame
+               (setq magit-display-buffer-function 'magit-display-buffer-fullframe-status-v1)
+               ;; Enable Evil keybindings in magit buffers
+               (evil-set-initial-state 'magit-mode 'normal)
+               (evil-set-initial-state 'magit-log-mode 'normal)
+               (evil-set-initial-state 'magit-diff-mode 'normal)
+               (evil-set-initial-state 'magit-status-mode 'normal)
+               (evil-set-initial-state 'magit-revision-mode 'normal))
+
              ;; FASM Mode configuration
              ;; Add the directory containing fasm-mode.el to load-path
              ;; This is crucial: we need to ensure Emacs can find the file
@@ -298,6 +327,8 @@ in {
         nix-mode
         nasm-mode
         vterm
+        go-mode
+        magit
       ];
   };
 

@@ -236,6 +236,7 @@
     wget
     unzip
     firefox
+    zig
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     wf-recorder
     pcsx2
