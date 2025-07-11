@@ -228,7 +228,7 @@ in {
                :config
                ;; Set up gofmt on save
                (add-hook 'before-save-hook 'gofmt-before-save)
-               
+
                ;; Set tab width for Go files
                (add-hook 'go-mode-hook
                          (lambda ()
