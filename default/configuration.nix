@@ -207,6 +207,7 @@
     traceroute
     tshark
     genymotion
+    foliate
     transmission_4-gtk
     inetutils
     openvpn

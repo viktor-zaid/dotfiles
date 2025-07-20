@@ -9,7 +9,7 @@
     enable = true;
     settings = {
       simplified_ui = true;
-      pane_frames = false;
+      # pane_frames = false;
       show_startup_tips = false;
       default_layout = "compact";
       default_shell = "${pkgs.bash}/bin/bash";
