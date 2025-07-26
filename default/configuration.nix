@@ -146,6 +146,7 @@
 
       nvidiaBusId = "PCI:02:00:0";
     };
+    bluetooth.enable = true;
   };
   specialisation = {
     gaming-time.configuration = {
@@ -240,6 +241,7 @@
     unzip
     firefox
     zig
+    bluetuith
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     wf-recorder
     pcsx2
