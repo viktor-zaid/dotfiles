@@ -32,14 +32,16 @@
   fonts.packages = with pkgs;
     [
       font-awesome
-      # courier-prime
-      # roboto
+      courier-prime
+      roboto
       noto-fonts
-      # noto-fonts-cjk
-      # noto-fonts-emoji
-      # jeunstable.tbrains-mono
-      # pkgs.nerd-fonts._0xproto
-      # pkgs.nerd-fonts.droid-sans-mono
+      noto-fonts-cjk-sans
+      noto-fonts-emoji
+      jetbrains-mono
+      pkgs.nerd-fonts._0xproto
+      pkgs.nerd-fonts.droid-sans-mono
+      amiri
+      scheherazade-new
     ]
     ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

@@ -216,6 +216,11 @@ in {
                :ensure t
                :mode ("\\.nix\\'" . nix-mode))
 
+             ;; Rust mode
+             (use-package rust-mode
+               :ensure t
+               :mode ("\\.rs\\'" . rust-mode))
+
              ;; C# mode
              (use-package csharp-mode
                :ensure t
@@ -325,6 +330,7 @@ in {
         gruber-darker-theme
         zig-mode
         nix-mode
+	rust-mode
         nasm-mode
         vterm
         go-mode
