@@ -206,6 +206,7 @@
     dig
     grim
     satty
+    rustup
     samba4Full
     traceroute
     tshark
