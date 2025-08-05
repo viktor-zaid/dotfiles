@@ -1,0 +1,83 @@
+(undo-tree-save-format-version . 1)
+"aab1fa065e8eb8625921ba3ab7fddc02c8eeb0ec"
+[nil nil nil nil (26653 42406 954525 497000) 0 nil]
+([nil nil ((#("programs.bash = {
+  enable = true;
+  bashrcExtra = ''
+    # Auto-start zellij in regular terminals only
+    if [[ $- == *i* ]] && [[ -z \"$ZELLIJ\" ]] && [[ -z \"$INSIDE_EMACS\" ]]; then
+      if command -v zellij >/dev/null 2>&1; then
+        # Only auto-start if not already in a zellij session
+        if [[ -z \"$ZELLIJ_SESSION_NAME\" ]]; then
+          # Don't use clear before starting zellij
+          # Use attach with a create flag
+          zellij attach -c
+        fi
+      fi
+    fi
+    # Set up Blesh
+    if [[ $- == *i* ]] && [[ -z \"$BLESH_AUTO_DISABLE\" ]]; then
+      source \"$(blesh-share)\"/ble.sh --noattach
+      set -o vi
+      [[ ! ''${BLE_VERSION-} ]] || ble-attach
+    else
+      set -o vi
+    fi
+    
+    
+    alias c3c='nix-alien-ld /opt/c3/c3c --'
+  '';
+};
+" 0 13 (face nix-attribute-face fontified t) 13 20 (fontified t) 20 26 (face nix-attribute-face fontified t) 26 29 (fontified t) 29 33 (face nix-builtin-face fontified t) 33 37 (fontified t) 37 48 (face nix-attribute-face fontified t) 48 51 (fontified t) 51 52 (face font-lock-string-face nix-string-type 39 syntax-table (15) fontified t) 52 703 (face font-lock-string-face fontified t) 703 706 (face font-lock-string-face fontified t) 706 770 (face font-lock-string-face fontified t) 770 771 (face font-lock-string-face nix-string-type 39 syntax-table (15) fontified t) 771 773 (fontified t) 773 774 (face nix-antiquote-face fontified t) 774 775 (fontified t) 775 776 (fontified t)) . 798) (undo-tree-id14 . -773) (undo-tree-id15 . -435) (undo-tree-id16 . -773) (undo-tree-id17 . -773) (undo-tree-id18 . -17) (undo-tree-id19 . -775) 1571 (t 26653 42005 354579 914000)) nil (26653 42406 954524 130000) 0 nil])
+([nil nil ((nil rear-nonsticky nil 1666 . 1667) (nil fontified nil 800 . 1667) (800 . 1667) (797 . 800) 753) nil (26653 42406 954519 654000) 0 nil])
+([nil nil ((#("  programs.bash = {
+  enable = true;
+  bashrcExtra = ''
+    # Set up Blesh
+    if [[ $- == *i* ]] && [[ -z \"$BLESH_AUTO_DISABLE\" ]]; then
+      source \"$(blesh-share)\"/ble.sh --noattach
+      set -o vi
+      [[ ! ''${BLE_VERSION-} ]] || ble-attach
+    else
+      set -o vi
+    fi
+    
+    # Auto-start zellij in regular terminals only
+    if [[ $- == *i* ]] && [[ -z \"$ZELLIJ\" ]] && [[ -z \"$INSIDE_EMACS\" ]]; then
+      if command -v zellij >/dev/null 2>&1; then
+        # Only auto-start if not already in a zellij session
+        if [[ -z \"$ZELLIJ_SESSION_NAME\" ]]; then
+          # Clear the screen first to help with layout issues
+          clear
+          # Use the compact-bar layout option for cleaner UI
+          zellij options --simplified-ui true
+          zellij attach -c
+        fi
+      fi
+    fi
+    
+    alias c3c='nix-alien-ld /opt/c3/c3c --'
+  '';
+};
+" 0 2 (fontified t) 2 15 (face nix-attribute-face fontified t) 15 22 (fontified t) 22 28 (face nix-attribute-face fontified t) 28 31 (fontified t) 31 35 (face nix-builtin-face fontified t) 35 39 (fontified t) 39 50 (face nix-attribute-face fontified t) 50 53 (fontified t) 53 54 (face font-lock-string-face nix-string-type 39 syntax-table (15) fontified t) 54 864 (face font-lock-string-face fontified t) 864 865 (face font-lock-string-face nix-string-type 39 syntax-table (15) fontified t) 865 868 (fontified t) 868 869 (rear-nonsticky t fontified t) 869 870 (fontified t)) . 798) (undo-tree-id0 . -867) (undo-tree-id1 . -335) (undo-tree-id2 . -867) (undo-tree-id3 . -18) (undo-tree-id4 . -867) (undo-tree-id5 . -870) (undo-tree-id6 . -869) (undo-tree-id7 . -870) (undo-tree-id8 . 1) (undo-tree-id9 . -19) (undo-tree-id10 . -867) (undo-tree-id11 . -867) (undo-tree-id12 . -19) (undo-tree-id13 . -867) 1665) nil (26653 42406 954518 99000) 0 nil])
+([nil nil ((nil rear-nonsticky nil 1619 . 1620) (nil fontified nil 800 . 1620) (800 . 1620) (798 . 800) (798 . 799)) nil (26653 42406 954476 391000) 0 nil])
+([nil nil ((#("    # Auto-start zellij in regular terminals only
+    if [[ $- == *i* ]] && [[ -z \"$ZELLIJ\" ]] && [[ -z \"$INSIDE_EMACS\" ]]; then
+      if command -v zellij >/dev/null 2>&1; then
+        # Only auto-start if not already in a zellij session
+        if [[ -z \"$ZELLIJ_SESSION_NAME\" ]]; then
+          # Don't use clear before starting zellij
+          # Use attach with a create flag
+          zellij attach -c
+        fi
+      fi
+    fi
+" 0 435 (face font-lock-string-face fontified t)) . 1128) (undo-tree-id81 . -429) (undo-tree-id82 . -1) (undo-tree-id83 . -429) (undo-tree-id84 . -434) (undo-tree-id85 . -429) (undo-tree-id86 . -429) (undo-tree-id87 . -420) (undo-tree-id88 . -429) (undo-tree-id89 . -409) (undo-tree-id90 . -420) (undo-tree-id91 . -382) (undo-tree-id92 . -409) (undo-tree-id93 . -340) (undo-tree-id94 . -382) (undo-tree-id95 . -289) (undo-tree-id96 . -340) (undo-tree-id97 . -240) (undo-tree-id98 . -289) (undo-tree-id99 . -179) (undo-tree-id100 . -240) (undo-tree-id101 . -130) (undo-tree-id102 . -179) (undo-tree-id103 . -51) (undo-tree-id104 . -130) (undo-tree-id105 . -1) (undo-tree-id106 . -51) (undo-tree-id107 . -1) (undo-tree-id108 . -1) (undo-tree-id109 . -1) (undo-tree-id110 . -1) (undo-tree-id111 . -51) (undo-tree-id112 . -1) (undo-tree-id113 . -130) (undo-tree-id114 . -51) (undo-tree-id115 . -179) (undo-tree-id116 . -130) (undo-tree-id117 . -240) (undo-tree-id118 . -179) (undo-tree-id119 . -289) (undo-tree-id120 . -240) (undo-tree-id121 . -340) (undo-tree-id122 . -289) (undo-tree-id123 . -382) (undo-tree-id124 . -340) (undo-tree-id125 . -409) (undo-tree-id126 . -382) (undo-tree-id127 . -420) (undo-tree-id128 . -409) (undo-tree-id129 . -428) (undo-tree-id130 . -429) (undo-tree-id131 . -420) (undo-tree-id132 . -429) (undo-tree-id133 . -435) (undo-tree-id134 . -435) 1557 (t 26653 42406 973547 446000)) nil (26653 42454 280983 167000) 0 nil])
+([nil nil ((#("    
+" 0 5 (face font-lock-string-face fontified t)) . 1123) (undo-tree-id22 . -5) (undo-tree-id23 . -5) (undo-tree-id24 . -5) (undo-tree-id25 . -5) (undo-tree-id26 . -4) (undo-tree-id27 . -5) (undo-tree-id28 . -5) (undo-tree-id29 . -5) (undo-tree-id30 . -5) (undo-tree-id31 . -5) (undo-tree-id32 . -5) (undo-tree-id33 . -5) (undo-tree-id34 . -5) (undo-tree-id35 . -5) (undo-tree-id36 . -5) (undo-tree-id37 . -5) (undo-tree-id38 . -5) (undo-tree-id39 . -5) (undo-tree-id40 . -5) (undo-tree-id41 . -5) (undo-tree-id42 . -5) (undo-tree-id43 . -5) (undo-tree-id44 . -5) (undo-tree-id45 . -5) (undo-tree-id46 . -5) (undo-tree-id47 . -5) (undo-tree-id48 . -5) (undo-tree-id49 . -5) (undo-tree-id50 . -5) (undo-tree-id51 . -5) (undo-tree-id52 . -5) (undo-tree-id53 . -5) (undo-tree-id54 . -5) (undo-tree-id55 . -5) (undo-tree-id56 . -5) (undo-tree-id57 . -5) (undo-tree-id58 . -5) (undo-tree-id59 . -5) (undo-tree-id60 . -5) (undo-tree-id61 . -5) (undo-tree-id62 . -5) (undo-tree-id63 . -5) (undo-tree-id64 . -5) (undo-tree-id65 . -5) (undo-tree-id66 . -5) (undo-tree-id67 . -5) (undo-tree-id68 . -5) (undo-tree-id69 . -5) (undo-tree-id70 . -5) (undo-tree-id71 . -5) (undo-tree-id72 . -5) (undo-tree-id73 . -5) (undo-tree-id74 . -5) (undo-tree-id75 . -5) (undo-tree-id76 . -5) (undo-tree-id77 . -5) (undo-tree-id78 . -5) (undo-tree-id79 . -5) (undo-tree-id80 . -5)) nil (26653 42454 280919 662000) 0 nil])
+([nil nil ((nil rear-nonsticky nil 903 . 904) (#("
+" 0 1 (fontified nil face font-lock-string-face)) . -1334) (899 . 1335) (899 . 900)) nil (26653 42454 280886 969000) 0 nil])
+([nil nil ((#("
+" 0 1 (face font-lock-string-face fontified t)) . 899) (undo-tree-id20 . -1) (undo-tree-id21 . -1)) nil (26653 42454 280885 881000) 0 nil])
+([nil current ((1333 . 1334) 1327) nil (26653 42454 280874 439000) 0 nil])
+nil

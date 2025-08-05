@@ -1,0 +1,6 @@
+(undo-tree-save-format-version . 1)
+"ace013670a9956f1876032572d5da334401e20dd"
+[nil nil nil nil (26653 41911 175153 756000) 0 nil]
+([nil nil ((#("kitty" 0 5 (face font-lock-string-face fontified t)) . 355) (undo-tree-id4 . -2) (undo-tree-id5 . -2) (undo-tree-id6 . -2) (undo-tree-id7 . -2) (undo-tree-id8 . -2) (undo-tree-id9 . -2) (undo-tree-id10 . -3) (undo-tree-id11 . -3) (undo-tree-id12 . -3) (undo-tree-id13 . -3) (undo-tree-id14 . -3) (undo-tree-id15 . -3) (undo-tree-id16 . -4) (undo-tree-id17 . -4) (undo-tree-id18 . -4) (undo-tree-id19 . -4) (undo-tree-id20 . -4) (undo-tree-id21 . -4) (undo-tree-id22 . -4) (undo-tree-id23 . -5) (undo-tree-id24 . -5) (undo-tree-id25 . -4) (t 26653 41026 437611 259000)) nil (26653 41911 175152 216000) 0 nil])
+([nil current ((359 . 365) (#("l" 0 1 (face font-lock-string-face fontified t)) . -359) (undo-tree-id0 . -1) (undo-tree-id1 . -1) (undo-tree-id2 . -1) (undo-tree-id3 . -1) 360 (357 . 360) (355 . 357)) nil (26653 41911 175122 112000) 0 nil])
+nil

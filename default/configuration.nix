@@ -80,6 +80,10 @@
     layout = "us";
     variant = "";
   };
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb; # or pkgs.mysql80
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.zaid = {
@@ -189,16 +193,18 @@
     package = pkgs.wireshark;
   };
 
-  nixpkgs.overlays = [
-    inputs.devenv.overlays.default
-  ];
+  # nixpkgs.overlays = [
+  #   inputs.devenv.overlays.default
+  # ];
 
   environment.systemPackages = with pkgs; [
+    devenv
     gdb
     gef
     bintools
     nasm
-    devenv
+    dbeaver-bin
+    godot
     brave
     tex-fmt
     gimp
@@ -206,7 +212,6 @@
     dig
     grim
     satty
-    samba4Full
     traceroute
     tshark
     genymotion
@@ -242,6 +247,7 @@
     firefox
     zig
     bluetuith
+    discord
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     wf-recorder
     pcsx2
@@ -257,7 +263,6 @@
     nix-output-monitor
     alejandra
     zellij
-    nvtopPackages.full
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
