@@ -14,8 +14,6 @@ in {
   # Rest of your config...
   programs.emacs = {
     enable = true;
-    # package = pkgs.emacs29;
-
     extraConfig = ''
              ;; Load required packages early to avoid free variable warnings
              (require 'evil)
@@ -46,6 +44,8 @@ in {
              (setq-default make-backup-files nil
                            auto-save-default nil
                            compile-command "")
+
+             (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo-tree-history/")))
 
              ;; Compilation functions
              (defun my-compile-without-history ()
@@ -131,10 +131,6 @@ in {
              ;; Make sure use-package is available at compile time
              (eval-when-compile
                (require 'use-package))
-
-      ;; Update this part in your emacs.nix extraConfig section
-
-      ;; Update this part in your emacs.nix extraConfig section
 
       (use-package vterm
         :ensure t
@@ -235,21 +231,6 @@ in {
                            (setq tab-width 4)
                            (setq indent-tabs-mode t))))
 
-             ;; Magit
-             (use-package magit
-               :ensure t
-               :bind (("C-x g" . magit-status)
-                      ("C-x M-g" . magit-dispatch))
-               :config
-               ;; Set magit to use full frame
-               (setq magit-display-buffer-function 'magit-display-buffer-fullframe-status-v1)
-               ;; Enable Evil keybindings in magit buffers
-               (evil-set-initial-state 'magit-mode 'normal)
-               (evil-set-initial-state 'magit-log-mode 'normal)
-               (evil-set-initial-state 'magit-diff-mode 'normal)
-               (evil-set-initial-state 'magit-status-mode 'normal)
-               (evil-set-initial-state 'magit-revision-mode 'normal))
-
              ;; FASM Mode configuration
              ;; Add the directory containing fasm-mode.el to load-path
              ;; This is crucial: we need to ensure Emacs can find the file
@@ -311,8 +292,8 @@ in {
                (message "Switched to NASM mode"))
 
              ;; Add key bindings for switching between modes (optional)
-             (global-set-key (kbd "C-c f") 'my/switch-to-fasm-mode)
-             (global-set-key (kbd "C-c n") 'my/switch-to-nasm-mode)
+             ;; (global-set-key (kbd "C-c f") 'my/switch-to-fasm-mode)
+             ;; (global-set-key (kbd "C-c n") 'my/switch-to-nasm-mode)
     '';
 
     # Install these packages via Nix. Emacs sees them at runtime:

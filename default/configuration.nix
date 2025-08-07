@@ -80,9 +80,29 @@
     layout = "us";
     variant = "";
   };
+
   services.mysql = {
     enable = true;
-    package = pkgs.mariadb; # or pkgs.mysql80
+    package = pkgs.mysql84;
+
+    # Create users
+    ensureUsers = [
+      {
+        name = "zaid";
+        ensurePermissions = {
+          "nobsv2.*" = "ALL PRIVILEGES";
+        };
+      }
+    ];
+
+    # Additional settings
+    settings = {
+      mysqld = {
+        bind-address = "127.0.0.1";
+        port = 3306;
+        max_connections = 200;
+      };
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -199,6 +219,7 @@
 
   environment.systemPackages = with pkgs; [
     devenv
+    postman
     gdb
     gef
     bintools
