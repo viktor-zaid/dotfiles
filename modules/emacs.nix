@@ -212,6 +212,16 @@ in {
                :ensure t
                :mode ("\\.nix\\'" . nix-mode))
 
+             ;; Rust mode
+             (use-package rust-mode
+               :ensure t
+               :mode ("\\.rs\\'" . rust-mode))
+
+             ;; Python mode
+             (use-package python-mode
+               :ensure t
+               :mode ("\\.py\\'" . python-mode))
+
              ;; C# mode
              (use-package csharp-mode
                :ensure t
@@ -302,11 +312,12 @@ in {
         direnv
         use-package
         undo-tree
+	python-mode
         evil
         gruber-darker-theme
         zig-mode
+	rust-mode
         nix-mode
-        rust-mode
         nasm-mode
         vterm
         go-mode
