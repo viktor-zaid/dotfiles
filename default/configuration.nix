@@ -18,6 +18,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.consoleLogLevel = 0;
+  # Enable v4l2loopback for DroidCam
+  boot.extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
+  boot.kernelModules = ["v4l2loopback"];
+  boot.extraModprobeConfig = ''
+    options v4l2loopback devices=2 max_buffers=2
+  '';
+
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
@@ -109,7 +116,7 @@
   users.users.zaid = {
     isNormalUser = true;
     description = "Zaid";
-    extraGroups = ["networkmanager" "wheel" "wireshark"];
+    extraGroups = ["networkmanager" "wheel" "wireshark" "video" "adbusers"];
     shell = pkgs.bash;
     packages = with pkgs; [];
   };
@@ -146,6 +153,8 @@
     enable = true;
     xwayland.enable = true;
   };
+
+  programs.adb.enable = true;
 
   programs.nh.enable = true;
 
@@ -217,10 +226,21 @@
   #   inputs.devenv.overlays.default
   # ];
 
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-backgroundremoval
+    ];
+  };
+
   environment.systemPackages = with pkgs; [
+    antimicrox
     devenv
     postman
+    droidcam
     gdb
+    wine
+    heroic
     gef
     bintools
     nasm
@@ -228,7 +248,9 @@
     godot
     brave
     tex-fmt
+    android-tools
     gimp
+    signal-desktop
     tcpdump
     dig
     grim
@@ -236,8 +258,6 @@
     traceroute
     tshark
     genymotion
-    foliate
-    transmission_4-gtk
     inetutils
     openvpn
     code-cursor
@@ -249,6 +269,7 @@
     virtio-win
     ghostscript
     pdftk
+    lutris
     protonup
     mangohud
     vulkan-loader
@@ -269,15 +290,19 @@
     zig
     bluetuith
     discord
+    shotcut
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+    showmethekey
     wf-recorder
     pcsx2
     mypaint
+    qbittorrent
     fastfetch
     man-pages-posix
     libreoffice
     man-pages
     xz
+    p7zip
     gnutar
     nvd
     sxiv

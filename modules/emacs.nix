@@ -312,11 +312,11 @@ in {
         direnv
         use-package
         undo-tree
-	python-mode
+        python-mode
         evil
         gruber-darker-theme
         zig-mode
-	rust-mode
+        rust-mode
         nix-mode
         nasm-mode
         vterm

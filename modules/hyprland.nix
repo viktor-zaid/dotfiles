@@ -13,6 +13,7 @@
     settings = {
       monitor = [
         ",preferred,auto,auto"
+        "HDMI-A-1, 1920x1080@60, auto, 1.5, mirror, eDP-1"
       ];
       xwayland = {
         force_zero_scaling = true;
@@ -120,9 +121,9 @@
         };
       };
 
-      gestures = {
-        workspace_swipe = false;
-      };
+      # gestures = {
+      #   workspace_swipe = false;
+      # };
 
       #    device = [
       # "name:epic-mouse-v1,sensitivity,-0.5"
