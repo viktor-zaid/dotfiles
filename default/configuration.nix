@@ -166,6 +166,10 @@
   hardware = {
     graphics.enable = true;
     graphics.enable32Bit = true;
+    graphics.extraPackages = with pkgs; [
+        intel-media-driver   # iHD_drv_video.so
+        intel-vaapi-driver   # i965_drv_video.so (fallback for older GPUs)
+    ];
     nvidia.modesetting.enable = true;
     nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
@@ -241,6 +245,7 @@
     gdb
     wine
     gef
+    gpu-screen-recorder
     bintools
     nasm
     brave
@@ -276,6 +281,7 @@
     vaapiVdpau
     libvdpau-va-gl
     nvidia-vaapi-driver
+    nvtopPackages.nvidia
     libva
     libva-utils
     git
