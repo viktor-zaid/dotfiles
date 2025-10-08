@@ -197,7 +197,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd ${pkgs.hyprland}/bin/Hyprland";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd ${pkgs.hyprland}/bin/Hyprland";
         user = "zaid";
       };
     };
@@ -226,12 +226,12 @@
   #   inputs.devenv.overlays.default
   # ];
 
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      obs-backgroundremoval
-    ];
-  };
+  # programs.obs-studio = {
+  #   enable = true;
+  #   plugins = with pkgs.obs-studio-plugins; [
+  #     obs-backgroundremoval
+  #   ];
+  # };
 
   environment.systemPackages = with pkgs; [
     antimicrox
@@ -240,12 +240,9 @@
     droidcam
     gdb
     wine
-    heroic
     gef
     bintools
     nasm
-    dbeaver-bin
-    godot
     brave
     tex-fmt
     android-tools
@@ -254,6 +251,7 @@
     tcpdump
     dig
     grim
+    microsoft-edge
     satty
     traceroute
     tshark
@@ -268,7 +266,6 @@
     fasm
     virtio-win
     ghostscript
-    pdftk
     lutris
     protonup
     mangohud
@@ -289,8 +286,6 @@
     firefox
     zig
     bluetuith
-    discord
-    shotcut
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     showmethekey
     wf-recorder
