@@ -267,12 +267,6 @@
     inetutils
     openvpn
     bluetuith
-
-    # System-level compatibility/runtime
-    wine
-    droidcam
-    direnv
-    ghostscript
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

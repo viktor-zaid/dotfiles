@@ -241,7 +241,7 @@ in {
                            (setq tab-width 4)
                            (setq indent-tabs-mode t))))
 
-	     ;; FASM Mode configuration
+      ;; FASM Mode configuration
              (add-to-list 'load-path "~/.emacs.d/lisp/")
              (require 'fasm-mode)
              (add-to-list 'auto-mode-alist '("\\.fasm\\'" . fasm-mode))
