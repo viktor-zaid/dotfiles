@@ -14,6 +14,17 @@
     };
   };
 
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-chewing
+      fcitx5-rime
+      rime-data
+      fcitx5-chinese-addons  # This includes Pinyin
+    ];
+  };
+
   programs = {
     mpv = {
       enable = true;
@@ -39,17 +50,18 @@
   programs.bash = {
     enable = true;
     bashrcExtra = ''
-      # if [[ $- == *i* ]] && [[ -z "$ZELLIJ" ]] && [[ -z "$INSIDE_EMACS" ]]; then
-      #   if command -v zellij >/dev/null 2>&1; then
-      #     if [[ -z "$ZELLIJ_SESSION_NAME" ]]; then
-      #       zellij attach -c
-      #     fi
-      #   fi
-      # fi
       export PS1='\[\033[0;31m\]\u@\h:\w\$ \[\033[0m\]'
       alias c3c='nix-alien-ld /opt/c3/c3c --'
     '';
   };
+  # Add this to your home.nix file
+
+home.sessionVariables = {
+  GTK_IM_MODULE = "fcitx";
+  QT_IM_MODULE = "fcitx";
+  XMODIFIERS = "@im=fcitx";
+  GLFW_IM_MODULE = "ibus"; # For some applications
+};
 
   imports = [
     ../modules/hyprland.nix

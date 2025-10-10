@@ -25,11 +25,6 @@
         "HYPRCURSOR_THEME,rose-pine-hyprcursor"
         "HYPRCURSOR_SIZE,24"
         "NIXOS_OZONE_WL,1"
-        "QT_IM_MODULE,fcitx5"
-        "XMODIFIERS,@im=fcitx"
-        "GTK_IM_MODULE,fcitx5"
-        "SDL_IM_MODULE,fcitx"
-	"GLFW_IM_MODULE,ibus"
       ];
 
       general = {
