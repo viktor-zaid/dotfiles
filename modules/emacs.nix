@@ -241,11 +241,7 @@ in {
                            (setq tab-width 4)
                            (setq indent-tabs-mode t))))
 
-             ;; FASM Mode configuration
-             ;; Add the directory containing fasm-mode.el to load-path
-             ;; This is crucial: we need to ensure Emacs can find the file
-             (add-to-list 'load-path "~/.emacs.d/lisp/")
-      ;; FASM Mode configuration
+	     ;; FASM Mode configuration
              (add-to-list 'load-path "~/.emacs.d/lisp/")
              (require 'fasm-mode)
              (add-to-list 'auto-mode-alist '("\\.fasm\\'" . fasm-mode))
@@ -253,6 +249,7 @@ in {
                        (lambda ()
                          (whitespace-mode 1)
                          (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+
              ;; NASM Mode configuration
              (use-package nasm-mode
                :ensure t
