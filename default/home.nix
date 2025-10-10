@@ -21,7 +21,8 @@
       fcitx5-chewing
       fcitx5-rime
       rime-data
-      fcitx5-chinese-addons  # This includes Pinyin
+      fcitx5-chinese-addons # This includes Pinyin
+      fcitx5-gtk
     ];
   };
 
@@ -56,12 +57,12 @@
   };
   # Add this to your home.nix file
 
-home.sessionVariables = {
-  GTK_IM_MODULE = "fcitx";
-  QT_IM_MODULE = "fcitx";
-  XMODIFIERS = "@im=fcitx";
-  GLFW_IM_MODULE = "ibus"; # For some applications
-};
+  home.sessionVariables = {
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
+    GLFW_IM_MODULE = "ibus"; # For some applications
+  };
 
   imports = [
     ../modules/hyprland.nix

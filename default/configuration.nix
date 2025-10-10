@@ -68,6 +68,7 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.supportedLocales = ["en_US.UTF-8/UTF-8" "zh_CN.UTF-8/UTF-8"];
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
@@ -167,8 +168,8 @@
     graphics.enable = true;
     graphics.enable32Bit = true;
     graphics.extraPackages = with pkgs; [
-        intel-media-driver   # iHD_drv_video.so
-        intel-vaapi-driver   # i965_drv_video.so (fallback for older GPUs)
+      intel-media-driver # iHD_drv_video.so
+      intel-vaapi-driver # i965_drv_video.so (fallback for older GPUs)
     ];
     nvidia.modesetting.enable = true;
     nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
