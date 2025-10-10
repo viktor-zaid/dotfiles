@@ -62,6 +62,7 @@
     QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
     GLFW_IM_MODULE = "ibus"; # For some applications
+    SDL_IM_MODULE = "fcitx";
   };
 
   imports = [
