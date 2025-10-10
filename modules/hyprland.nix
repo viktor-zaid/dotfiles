@@ -117,14 +117,6 @@
         };
       };
 
-      # gestures = {
-      #   workspace_swipe = false;
-      # };
-
-      #    device = [
-      # "name:epic-mouse-v1,sensitivity,-0.5"
-      #    ];
-
       exec-once = [
         # "foot --server"
         "cliphist wipe"
@@ -141,10 +133,10 @@
         "$mainMod, Q, killactive,"
         "$mainMod, M, exit,"
         "$mainMod SHIFT, space, togglefloating,"
-        "$mainMod, D, exec, wofi --show drun,"
+        "$mainMod, D, exec, pkill wofi || wofi --show drun"
         "$mainMod, V, exec, cliphist list | wofi -d | cliphist decode | wl-copy"
         "$mainMod, F, fullscreen, 1"
-        ", Print, exec, grim -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"
+        ", Print, exec, pgrep -x satty || grim -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"
         # "$mainMod, P, pseudo,"
         # "$mainMod, J, togglesplit,"
 

@@ -29,6 +29,10 @@
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "backup";
+    extraSpecialArgs = {inherit inputs;};
+    users = {
+      "zaid" = import ./home.nix;
+    };
   };
 
   documentation.dev.enable = true;
@@ -123,12 +127,6 @@
   };
 
   nix.settings.trusted-users = ["root" "zaid"];
-  home-manager = {
-    extraSpecialArgs = {inherit inputs;};
-    users = {
-      "zaid" = import ./home.nix;
-    };
-  };
 
   programs.virt-manager.enable = true;
 
@@ -227,56 +225,26 @@
     package = pkgs.wireshark;
   };
 
-  # nixpkgs.overlays = [
-  #   inputs.devenv.overlays.default
-  # ];
-
-  # programs.obs-studio = {
-  #   enable = true;
-  #   plugins = with pkgs.obs-studio-plugins; [
-  #     obs-backgroundremoval
-  #   ];
-  # };
-
   environment.systemPackages = with pkgs; [
-    antimicrox
-    devenv
-    postman
-    droidcam
-    gdb
-    wine
-    gef
-    gpu-screen-recorder
-    bintools
-    nasm
-    brave
-    tex-fmt
-    android-tools
-    gimp
-    signal-desktop
-    tcpdump
-    dig
-    grim
-    microsoft-edge
-    satty
-    traceroute
-    tshark
-    genymotion
-    inetutils
-    openvpn
-    code-cursor
-    nmap
+    # System utilities
+    git
+    netcat
+    file
+    wget
+    unzip
+    xz
+    p7zip
+    gnutar
+
+    # Documentation
+    man-pages
+    man-pages-posix
+
+    # Audio/Video system libraries
     alsa-utils
-    appimage-run
-    direnv
-    fasm
-    virtio-win
-    ghostscript
-    lutris
-    protonup
-    mangohud
+
+    # Graphics/Driver libraries
     vulkan-loader
-    tree
     vulkan-validation-layers
     vulkan-tools
     vaapiVdpau
@@ -285,31 +253,26 @@
     nvtopPackages.nvidia
     libva
     libva-utils
-    git
-    netcat
-    file
-    wget
-    unzip
-    zig
+
+    # Virtualization
+    virtio-win
+    genymotion
+
+    # Network tools
+    tcpdump
+    dig
+    traceroute
+    tshark
+    nmap
+    inetutils
+    openvpn
     bluetuith
-    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
-    showmethekey
-    wf-recorder
-    pcsx2
-    mypaint
-    qbittorrent
-    fastfetch
-    man-pages-posix
-    libreoffice
-    man-pages
-    xz
-    p7zip
-    gnutar
-    nvd
-    sxiv
-    nix-output-monitor
-    alejandra
-    zellij
+
+    # System-level compatibility/runtime
+    wine
+    droidcam
+    direnv
+    ghostscript
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

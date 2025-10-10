@@ -257,7 +257,7 @@
           "tooltip-format" = "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>";
           "format" = " {:%d/%m/%Y  %I:%M:%S %p}";
           "interval" = 1;
-          "on-click" = "exec bash ~/nixos/modules/scripts/OCV";
+          "on-click" = "ocv-calendar";
         };
 
         "cpu" = {
@@ -339,5 +339,14 @@
     nwg-launchers
     pwvucontrol
     yad
+    # Calendar popup script
+    (pkgs.writeShellScriptBin "ocv-calendar" ''
+      ${pkgs.yad}/bin/yad --width=400 --height=200 \
+        --center \
+        --fixed \
+        --title="Calendar" \
+        --no-buttons \
+        --calendar
+    '')
   ];
 }

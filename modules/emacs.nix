@@ -245,22 +245,14 @@ in {
              ;; Add the directory containing fasm-mode.el to load-path
              ;; This is crucial: we need to ensure Emacs can find the file
              (add-to-list 'load-path "~/.emacs.d/lisp/")
-
-             ;; Load fasm-mode only if the file exists
-             (if (file-exists-p "~/.emacs.d/lisp/fasm-mode.el")
-                 (progn
-                   (require 'fasm-mode)
-                   ;; Associate .asm files with fasm-mode
-                   (add-to-list 'auto-mode-alist '("\\.fasm\\'" . fasm-mode))
-                   ;; Setup whitespace handling for fasm-mode
-                   (add-hook 'fasm-mode-hook
-                           (lambda ()
-                             ;; Enable whitespace mode
-                             (whitespace-mode 1)
-                             ;; Delete trailing whitespace on save
-                             (add-to-list 'write-file-functions 'delete-trailing-whitespace))))
-               (message "Warning: fasm-mode.el not found"))
-
+      ;; FASM Mode configuration
+             (add-to-list 'load-path "~/.emacs.d/lisp/")
+             (require 'fasm-mode)
+             (add-to-list 'auto-mode-alist '("\\.fasm\\'" . fasm-mode))
+             (add-hook 'fasm-mode-hook
+                       (lambda ()
+                         (whitespace-mode 1)
+                         (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
              ;; NASM Mode configuration
              (use-package nasm-mode
                :ensure t

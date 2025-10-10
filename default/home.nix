@@ -37,17 +37,57 @@
   };
 
   home.packages = with pkgs; [
-    blesh
+    # Development tools
+    devenv
+    gdb
+    gef
+    bintools
+    nasm
+    fasm
+    zig
+    tex-fmt
+    alejandra
+    code-cursor
+
+    # Browsers
+    brave
+    microsoft-edge
+
+    # GUI applications
+    gimp
+    signal-desktop
+    qbittorrent
+    libreoffice
+    sxiv
+
+    # Gaming
+    antimicrox
+    lutris
+    protonup
+    mangohud
+    pcsx2
+
+    # Screen recording/capture
+    gpu-screen-recorder
+    grim
+    satty
+    showmethekey
+
+    # Utilities
+    tree
+    fastfetch
+    nvd
+    nix-output-monitor
+    appimage-run
+    bluetuith
+
+    # Theme
+    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+
+    # Nix tools
     inputs.nix-alien.packages.${pkgs.system}.nix-alien
   ];
 
-  # Add this to your bash configuration
-  # This script will add zellij auto-start logic but will respect the ZELLIJ environment variable
-
-  # Update your programs.bash.bashrcExtra in home.nix with this content:
-
-  # Updated bash auto-start logic for home.nix
-  # Updated bash auto-start logic for home.nix
   programs.bash = {
     enable = true;
     bashrcExtra = ''
@@ -55,7 +95,6 @@
       alias c3c='nix-alien-ld /opt/c3/c3c --'
     '';
   };
-  # Add this to your home.nix file
 
   home.sessionVariables = {
     GTK_IM_MODULE = "fcitx";
