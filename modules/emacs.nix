@@ -344,4 +344,3 @@ in {
     ".emacs.d/lisp/fasm-mode.el".source = fasm-mode-path;
   };
 }
-
