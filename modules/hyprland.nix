@@ -29,6 +29,7 @@
         "XMODIFIERS,@im=fcitx"
         "GTK_IM_MODULE,fcitx5"
         "SDL_IM_MODULE,fcitx"
+	"GLFW_IM_MODULE,ibus"
       ];
 
       general = {
