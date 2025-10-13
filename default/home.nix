@@ -59,6 +59,7 @@
     qbittorrent
     libreoffice
     sxiv
+    telegram-desktop
 
     # Gaming
     antimicrox

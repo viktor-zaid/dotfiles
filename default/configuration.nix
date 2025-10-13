@@ -36,6 +36,8 @@
   };
 
   documentation.dev.enable = true;
+  documentation.man.generateCaches = true;
+
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
