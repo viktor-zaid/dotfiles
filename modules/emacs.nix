@@ -302,8 +302,8 @@ in {
                (message "Switched to NASM mode"))
 
              ;; Add key bindings for switching between modes (optional)
-             ;; (global-set-key (kbd "C-c f") 'my/switch-to-fasm-mode)
-             ;; (global-set-key (kbd "C-c n") 'my/switch-to-nasm-mode)
+             (global-set-key (kbd "C-c f") 'my/switch-to-fasm-mode)
+             (global-set-key (kbd "C-c n") 'my/switch-to-nasm-mode)
     '';
 
     # Install these packages via Nix. Emacs sees them at runtime:
