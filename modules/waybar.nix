@@ -284,10 +284,10 @@
         };
 
         "network" = {
-	  "interval" = 1;
+          "interval" = 1;
           "format" = "⚠Disabled";
-	  "format-wifi" = "⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}";
-	  "format-ethernet" = "⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}";
+          "format-wifi" = "⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}";
+          "format-ethernet" = "⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}";
           "format-linked" = "{ifname} (No IP)";
           "format-disconnected" = "⚠Disabled";
           "format-alt" = "{ifname}: {ipaddr}/{cidr}";
