@@ -162,7 +162,7 @@
          }
 
          #network {
-             color: #a3be8c;
+             color: #d08770;
          }
 
          #network.disconnected {
@@ -189,10 +189,6 @@
          #custom-keyboard-layout {
              color: #d08770;
          }
-
-         #custom-network_traffic {
-             color: #d08770;
-         }
     '';
 
     settings = {
@@ -205,7 +201,7 @@
         spacing = 0;
 
         "modules-left" = ["hyprland/workspaces" "hyprland/window"];
-        "modules-center" = ["custom/network_traffic"];
+        "modules-center" = ["network"];
         "modules-right" = [
           "backlight"
           "hyprland/language"
@@ -288,9 +284,10 @@
         };
 
         "network" = {
+	  "interval" = 1;
           "format" = "⚠Disabled";
-          "format-wifi" = " ";
-          "format-ethernet" = "";
+	  "format-wifi" = "⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}";
+	  "format-ethernet" = "⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}";
           "format-linked" = "{ifname} (No IP)";
           "format-disconnected" = "⚠Disabled";
           "format-alt" = "{ifname}: {ipaddr}/{cidr}";
@@ -303,12 +300,6 @@
           "format" = "{}";
           "format-en" = "en";
           "format-ar" = "ar";
-        };
-
-        "custom/network_traffic" = {
-          "exec" = "exec bash ~/nixos/modules/scripts/network_traffic.sh";
-          "return-type" = "json";
-          "format-ethernet" = "{icon} {ifname} ⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}";
         };
 
         "pulseaudio" = {
