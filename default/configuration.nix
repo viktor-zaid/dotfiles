@@ -41,6 +41,16 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+    nixpkgs.overlays = [
+    (final: prev: {
+      fcitx5-chinese-addons = prev.fcitx5-chinese-addons.overrideAttrs (old: {
+        postInstall = (old.postInstall or "") + ''
+          cp ${./flags/china.png} $out/share/icons/hicolor/48x48/apps/org.fcitx.Fcitx5.fcitx-pinyin.png
+        '';
+      });
+    })
+  ];
+
   networking.hostName = "nixos"; # Define your hostname.
   fonts.packages = with pkgs;
     [
