@@ -123,7 +123,7 @@
         "wl-paste --type image --watch cliphist store"
         "emacs --daemon &"
         "nm-applet --indicator"
-        "${config.home.homeDirectory}/nixos/japan.jpg"
+        "swaybg -i ${config.home.homeDirectory}/nixos/japan.jpg"
       ];
 
       bind = [
