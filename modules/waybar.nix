@@ -127,10 +127,10 @@
              color: #81a1c1;
          }
 
-         #language {
+         /*#language {
              color: #d08770;
       min-width: 30px;
-         }
+         }*/
 
          @keyframes blink {
              to {
@@ -204,7 +204,7 @@
         "modules-center" = ["network"];
         "modules-right" = [
           "backlight"
-          "hyprland/language"
+          # "hyprland/language"
           "cpu"
           "memory"
           "battery"
@@ -296,11 +296,11 @@
           "tooltip-format-ethernet" = "  {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}";
         };
 
-        "hyprland/language" = {
-          "format" = "{}";
-          "format-en" = "en";
-          "format-ar" = "ar";
-        };
+        # "hyprland/language" = {
+        #   "format" = "{}";
+        #   "format-en" = "en";
+        #   "format-ar" = "ar";
+        # };
 
         "pulseaudio" = {
           "scroll-step" = 3;

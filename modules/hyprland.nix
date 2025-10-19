@@ -106,9 +106,9 @@
       };
 
       input = {
-        kb_layout = "us,ara";
-        kb_variant = ",";
-        kb_options = "grp:alt_shift_toggle";
+        # kb_layout = "us,ara";
+        # kb_variant = ",";
+        # kb_options = "grp:alt_shift_toggle";
         follow_mouse = 1;
         sensitivity = 0;
 
@@ -207,7 +207,7 @@
       ];
 
       windowrulev2 = [
-	"suppressevent maximize, class:.*"
+        "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
       ];
     };
