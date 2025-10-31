@@ -86,7 +86,7 @@
       roboto
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       jetbrains-mono
       pkgs.nerd-fonts._0xproto
       pkgs.nerd-fonts.droid-sans-mono
@@ -262,10 +262,9 @@
     vulkan-loader
     vulkan-validation-layers
     vulkan-tools
-    vaapiVdpau
+    libva-vdpau-driver
     libvdpau-va-gl
     nvidia-vaapi-driver
-    nvtopPackages.nvidia
     libva
     libva-utils
 

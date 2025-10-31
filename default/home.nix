@@ -21,7 +21,7 @@
       fcitx5-chewing
       fcitx5-rime
       rime-data
-      fcitx5-chinese-addons # This includes Pinyin
+      qt6Packages.fcitx5-chinese-addons
       fcitx5-gtk
     ];
   };
@@ -64,7 +64,7 @@
     # Gaming
     antimicrox
     lutris
-    protonup
+    protonup-ng
     mangohud
     pcsx2
 
