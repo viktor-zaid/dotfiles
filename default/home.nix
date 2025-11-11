@@ -81,6 +81,7 @@
     nix-output-monitor
     appimage-run
     bluetuith
+    tealdeer
 
     # Theme
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
