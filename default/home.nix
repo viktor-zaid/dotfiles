@@ -47,7 +47,7 @@
     zig
     tex-fmt
     alejandra
-    code-cursor
+    zed-editor
 
     # Browsers
     brave
