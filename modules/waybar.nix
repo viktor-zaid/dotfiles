@@ -203,8 +203,8 @@
         "modules-left" = ["hyprland/workspaces" "hyprland/window"];
         "modules-center" = ["network"];
         "modules-right" = [
-          "backlight"
           "hyprland/language"
+          "backlight"
           "cpu"
           "memory"
           "battery"
