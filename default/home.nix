@@ -14,18 +14,6 @@
     };
   };
 
-  i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-chewing
-      fcitx5-rime
-      rime-data
-      qt6Packages.fcitx5-chinese-addons
-      fcitx5-gtk
-    ];
-  };
-
   programs = {
     mpv = {
       enable = true;
@@ -101,14 +89,6 @@
     bashrcExtra = ''
       export PS1='\[\033[0;31m\]\u@\h:\w\$ \[\033[0m\]'
     '';
-  };
-
-  home.sessionVariables = {
-    GTK_IM_MODULE = "fcitx";
-    QT_IM_MODULE = "fcitx";
-    XMODIFIERS = "@im=fcitx";
-    GLFW_IM_MODULE = "ibus"; # For some applications
-    SDL_IM_MODULE = "fcitx";
   };
 
   imports = [

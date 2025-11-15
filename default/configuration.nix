@@ -40,44 +40,6 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  nixpkgs.overlays = [
-    # Customize Chinese Pinyin icon
-    (final: prev: {
-      fcitx5-chinese-addons = prev.fcitx5-chinese-addons.overrideAttrs (old: {
-        postInstall =
-          (old.postInstall or "")
-          + ''
-            cp ${./flags/china.png} $out/share/icons/hicolor/48x48/apps/org.fcitx.Fcitx5.fcitx-pinyin.png
-          '';
-      });
-    })
-    # Customize English keyboard icon (create input-keyboard-symbolic)
-    (final: prev: {
-      fcitx5 = prev.fcitx5.overrideAttrs (old: {
-        postInstall =
-          (old.postInstall or "")
-          + ''
-            # Create input-keyboard-symbolic at all sizes (THIS is what Waybar needs!)
-            for size in 16x16 22x22 24x24 32x32 48x48 128x128; do
-              mkdir -p $out/share/icons/hicolor/$size/apps
-              cp ${./flags/united-states.png} $out/share/icons/hicolor/$size/apps/input-keyboard-symbolic.png
-            done
-
-            # Also replace the generic Fcitx5 icon for good measure
-            for size in 16x16 22x22 24x24 32x32 48x48 128x128; do
-              if [ -f $out/share/icons/hicolor/$size/apps/org.fcitx.Fcitx5.png ]; then
-                cp ${./flags/united-states.png} $out/share/icons/hicolor/$size/apps/org.fcitx.Fcitx5.png
-              fi
-            done
-
-            # Remove SVGs
-            rm -f $out/share/icons/hicolor/scalable/apps/org.fcitx.Fcitx5.svg
-            rm -f $out/share/icons/hicolor/scalable/apps/fcitx.svg
-          '';
-      });
-    })
-  ];
-
   networking.hostName = "nixos"; # Define your hostname.
   fonts.packages = with pkgs;
     [
