@@ -1,0 +1,120 @@
+/* ~/.config/wofi/style.css */
+
+* {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+}
+
+window {
+    margin: 0px;
+    border: 2px solid rgba(51, 204, 255, 0.9);
+    background-color: rgba(17, 17, 27, 0.95);
+    border-radius: 0px;
+    backdrop-filter: blur(10px);
+}
+
+#input {
+    margin: 10px;
+    padding: 12px 16px;
+    border: 2px solid rgba(51, 204, 255, 0.3);
+    color: #e0e0e0;
+    background-color: rgba(30, 30, 46, 0.8);
+    border-radius: 0px;
+    font-size: 15px;
+    transition: all 0.2s ease;
+}
+
+#input:focus {
+    border-color: rgba(51, 204, 255, 0.8);
+    background-color: rgba(40, 40, 60, 0.9);
+    box-shadow: 0 0 15px rgba(51, 204, 255, 0.3);
+}
+
+#input image {
+    color: rgba(51, 204, 255, 0.8);
+}
+
+#inner-box {
+    margin: 5px;
+    padding: 8px;
+    background-color: transparent;
+}
+
+#outer-box {
+    margin: 5px;
+    padding: 0px;
+    background-color: transparent;
+}
+
+#scroll {
+    margin: 0px;
+    padding: 5px;
+}
+
+#text {
+    margin: 5px;
+    padding: 5px;
+    color: #e0e0e0;
+}
+
+#text:selected {
+    color: #ffffff;
+}
+
+#entry {
+    margin: 3px 8px;
+    padding: 10px 14px;
+    border-radius: 0px;
+    background-color: transparent;
+    transition: all 0.15s ease;
+}
+
+#entry:selected {
+    background: linear-gradient(90deg,
+        rgba(51, 204, 255, 0.15) 0%,
+        rgba(0, 255, 153, 0.15) 100%);
+    border-left: 3px solid rgba(51, 204, 255, 0.9);
+    padding-left: 11px;
+}
+
+#entry:hover {
+    background-color: rgba(51, 204, 255, 0.08);
+}
+
+#entry:selected #text {
+    font-weight: 600;
+    color: #33ccff;
+}
+
+#entry image {
+    margin-right: 10px;
+    border-radius: 0px;
+}
+
+#entry:selected image {
+    filter: brightness(1.2);
+}
+
+/* Scrollbar styling */
+scrollbar {
+    background-color: transparent;
+    width: 8px;
+}
+
+scrollbar slider {
+    background-color: rgba(51, 204, 255, 0.3);
+    border-radius: 0px;
+    min-height: 40px;
+}
+
+scrollbar slider:hover {
+    background-color: rgba(51, 204, 255, 0.5);
+}
+
+scrollbar slider:active {
+    background-color: rgba(51, 204, 255, 0.7);
+}
+
+#entry:not(:has(#text)) {
+    display: none;
+}
