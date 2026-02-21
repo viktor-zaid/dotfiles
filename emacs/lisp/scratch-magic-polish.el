@@ -6,7 +6,9 @@
 ;; - Sends entire buffer as <raw>...</raw>
 ;; - Replaces entire buffer with model output
 
+(require 'cl-lib)
 (require 'json)
+(require 'seq)
 (require 'subr-x)
 (require 'url)
 
@@ -91,8 +93,29 @@
                 (mapcar (lambda (part) (alist-get "text" part nil nil #'string=))
                         parts))))
     (if text-parts
-        (string-join text-parts "")
+        (scratch-magic--fix-mojibake (string-join text-parts ""))
       (user-error "Gemini response did not contain text content"))))
+
+(defun scratch-magic--fix-mojibake (text)
+  "Repair common UTF-8-as-Latin-1 mojibake in TEXT."
+  (cl-labels ((c1-byte-p (ch)
+                (or (and (>= ch 128) (<= ch 159))
+                    (and (>= ch #x3fff80) (<= ch #x3fff9f)))))
+  (let ((decoded
+         (if (multibyte-string-p text)
+             text
+           ;; `json-read` may yield unibyte UTF-8 bytes: decode first.
+           (decode-coding-string text 'utf-8 t))))
+    (if (seq-some #'c1-byte-p (string-to-list decoded))
+        (condition-case nil
+            (let ((fixed (decode-coding-string
+                          (encode-coding-string decoded 'latin-1 t)
+                          'utf-8 t)))
+              (if (seq-some #'c1-byte-p (string-to-list fixed))
+                  decoded
+                fixed))
+          (error decoded))
+      decoded))))
 
 (defun scratch-magic--request (raw-text)
   "Send RAW-TEXT to Gemini and return polished text."
@@ -102,6 +125,8 @@
             ("x-goog-api-key" . ,(scratch-magic--api-key))))
          (url-request-data
           (encode-coding-string (scratch-magic--build-request raw-text) 'utf-8))
+         (coding-system-for-read 'utf-8-unix)
+         (coding-system-for-write 'utf-8-unix)
          (buffer (url-retrieve-synchronously
                   (scratch-magic--endpoint)
                   t
@@ -117,7 +142,8 @@
                    (if (re-search-forward "^HTTP/[0-9.]+ \\([0-9]+\\)" nil t)
                        (string-to-number (match-string 1))
                      0)))
-              (unless (re-search-forward "\n\n" nil t)
+              (goto-char (or url-http-end-of-headers (point-min)))
+              (when (> (point) (point-max))
                 (user-error "Unexpected Gemini response format"))
               (let* ((json-object-type 'alist)
                      (json-array-type 'list)
