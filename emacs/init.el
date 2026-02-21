@@ -336,6 +336,29 @@
 (global-set-key (kbd "C-c n") 'my/switch-to-nasm-mode)
 
 (global-set-key (kbd "C-c m") 'my/show-current-mode)
+
+;; ============================================================================
+;; SCRATCH MAGIC POLISH
+;; ============================================================================
+
+;; Preferred API key setup:
+;; - Shell env var: GEMINI_API_KEY
+;; - Or put this in ~/.emacs.d/local-secrets.el (untracked):
+;;   (setq scratch-magic-api-key "YOUR_GEMINI_API_KEY")
+(let ((my/local-secrets-file (expand-file-name "local-secrets.el" user-emacs-directory)))
+  (when (file-readable-p my/local-secrets-file)
+    (load my/local-secrets-file nil t)))
+
+;; Optional model override (default is already gemini-3-flash-preview):
+;; (setq scratch-magic-model "gemini-3-flash-preview")
+
+(when (require 'scratch-magic-polish nil t)
+  ;; Local-only binding in *scratch* so existing global mappings remain intact.
+  (add-hook 'lisp-interaction-mode-hook
+            (lambda ()
+              (when (string= (buffer-name) "*scratch*")
+                (local-set-key (kbd "C-c m") #'scratch-magic-polish)))))
+
 ;;; init.el ends here
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
