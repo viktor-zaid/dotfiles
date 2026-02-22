@@ -1,1 +1,2 @@
 modules/.emacs.nix.~undo-tree~
+wofi/plugins/*.so

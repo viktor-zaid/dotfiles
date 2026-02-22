@@ -5,7 +5,7 @@
   "spacing": 0,
   "modules-left": ["custom/power", "hyprland/workspaces"],
   "modules-center": ["mpris"],
-  "modules-right": ["cpu", "memory", "backlight", "pulseaudio", "network", "battery", "tray", "clock"],
+  "modules-right": ["cpu", "memory", "backlight", "pulseaudio", "network", "battery", "hyprland/language", "tray", "clock"],
 
   "custom/power": {
     "format": "󰐥",
@@ -63,6 +63,17 @@
     "format-charging": "󰂄  {capacity}%",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "states": { "warning": 20, "critical": 10 }
+  },
+
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "🇺🇸",
+    "format-us": "🇺🇸",
+    "format-ar": "🇵🇸",
+    "format-ara": "🇵🇸",
+    "format-ru": "🇷🇺",
+    "keyboard-name": "at-translated-set-2-keyboard",
+    "tooltip": false
   },
 
   "tray": { "spacing": 6 },

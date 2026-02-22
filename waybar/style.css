@@ -56,10 +56,16 @@ tooltip {
 #pulseaudio { color: #7dcfff; }
 #network { color: #9ece6a; }
 #battery { color: #f7768e; }
+#language { color: #c0caf5; }
 #clock { color: #c0caf5; }
 
-#cpu, #memory, #backlight, #pulseaudio, #network, #battery, #clock {
+#cpu, #memory, #backlight, #pulseaudio, #network, #battery, #language, #clock {
   padding: 0 10px;
+}
+
+#language {
+  font-family: "Noto Color Emoji", "JetBrainsMono Nerd Font", sans-serif;
+  font-size: 14px;
 }
 
 #pulseaudio.muted { color: #f7768e; }
