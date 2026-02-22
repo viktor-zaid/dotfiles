@@ -354,10 +354,16 @@
 
 (when (require 'scratch-magic-polish nil t)
   ;; Local-only binding in *scratch* so existing global mappings remain intact.
-  (add-hook 'lisp-interaction-mode-hook
-            (lambda ()
-              (when (string= (buffer-name) "*scratch*")
-                (local-set-key (kbd "C-c m") #'scratch-magic-polish)))))
+  (defun my/scratch-magic-bind-key ()
+    "Bind C-c m to scratch magic only in *scratch*."
+    (when (and (derived-mode-p 'lisp-interaction-mode)
+               (string= (buffer-name) "*scratch*"))
+      (local-set-key (kbd "C-c m") #'scratch-magic-polish)))
+  (add-hook 'lisp-interaction-mode-hook #'my/scratch-magic-bind-key)
+  ;; Apply immediately when reloading config with an already-open *scratch*.
+  (when (get-buffer "*scratch*")
+    (with-current-buffer "*scratch*"
+      (my/scratch-magic-bind-key))))
 
 ;;; init.el ends here
 (custom-set-variables
