@@ -1,5 +1,10 @@
 /* ~/.config/wofi/style.css */
 
+@define-color theme_selected_bg_color rgba(0, 0, 0, 0);
+@define-color theme_selected_fg_color #33ccff;
+@define-color theme_unfocused_selected_bg_color rgba(0, 0, 0, 0);
+@define-color theme_unfocused_selected_fg_color #33ccff;
+
 * {
     font-family: "JetBrains Mono", monospace;
     font-size: 14px;
@@ -8,9 +13,8 @@
 window {
     margin: 0px;
     border: 2px solid rgba(51, 204, 255, 0.9);
-    background-color: rgba(17, 17, 27, 0.95);
+    background-color: #11111b;
     border-radius: 0px;
-    backdrop-filter: blur(10px);
 }
 
 #input {
@@ -37,7 +41,10 @@ window {
 #inner-box {
     margin: 5px;
     padding: 8px;
-    background-color: transparent;
+    background-color: #11111b;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
 }
 
 #outer-box {
@@ -49,6 +56,33 @@ window {
 #scroll {
     margin: 0px;
     padding: 5px;
+    background-color: #11111b;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Disable GTK scroll overshoot/undershoot glow that appears while scrolling */
+scrolledwindow,
+scrolledwindow viewport,
+scrolledwindow frame,
+#scroll viewport,
+#scroll viewport > *,
+#scroll > viewport > box,
+#scroll > viewport > flowbox,
+#inner-box,
+#scroll overshoot,
+#scroll undershoot,
+overshoot,
+undershoot,
+overshoot.top,
+overshoot.bottom,
+undershoot.top,
+undershoot.bottom {
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 #text {
@@ -59,31 +93,161 @@ window {
 
 #text:selected {
     color: #ffffff;
+    background-color: transparent !important;
+}
+
+#unselected {
+    background-color: #11111b !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border-left: 3px solid transparent !important;
+}
+
+#selected {
+    background-color: #11111b !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border-left: 3px solid rgba(51, 204, 255, 0.95) !important;
+}
+
+#selected #text,
+#unselected #text {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+#selected #text {
+    color: #33ccff;
+    font-weight: 700;
+}
+
+.entry,
+.entry:selected,
+.entry:focus,
+.entry:hover,
+.entry:active {
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    transition: none;
 }
 
 #entry {
     margin: 3px 8px;
     padding: 10px 14px;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
     border-radius: 0px;
-    background-color: transparent;
-    transition: all 0.15s ease;
+    background-color: #11111b !important;
+    background-image: none !important;
+    transition: none;
 }
 
 #entry:selected {
-    background: linear-gradient(90deg,
-        rgba(51, 204, 255, 0.15) 0%,
-        rgba(0, 255, 153, 0.15) 100%);
-    border-left: 3px solid rgba(51, 204, 255, 0.9);
-    padding-left: 11px;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
 }
 
 #entry:hover {
-    background-color: rgba(51, 204, 255, 0.08);
+    background-color: transparent !important;
+    background-image: none !important;
 }
 
 #entry:selected #text {
     font-weight: 600;
     color: #33ccff;
+}
+
+#expander-box,
+#expander-box row,
+#expander-box row:selected,
+#expander-box row:focus,
+#expander-box row:hover,
+#expander-box row:active {
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    transition: none;
+}
+
+flowboxchild,
+flowboxchild:focus,
+flowboxchild:backdrop,
+flowboxchild:hover,
+flowboxchild:active,
+flowboxchild:selected,
+flowboxchild:selected:focus,
+flowboxchild:selected:backdrop,
+flowboxchild:selected:hover,
+flowboxchild:selected:active {
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    transition: none;
+}
+
+flowboxchild > * ,
+flowboxchild > * > * {
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    transition: none;
+}
+
+row:selected,
+row:selected:focus,
+row:selected:backdrop,
+row:selected:hover,
+row:selected:active,
+row:hover,
+row:active,
+row:focus,
+list row:selected,
+list row:selected:focus,
+list row:selected:backdrop,
+list row:selected:hover,
+list row:selected:active,
+list row:hover,
+list row:active,
+list row:focus,
+listbox row:selected,
+listbox row:selected:focus,
+listbox row:selected:backdrop,
+listbox row:selected:hover,
+listbox row:selected:active,
+listbox row:hover,
+listbox row:active,
+listbox row:focus {
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border: none !important;
+    transition: none;
+}
+
+rubberband,
+.rubberband {
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 #entry image {
@@ -98,21 +262,70 @@ window {
 /* Scrollbar styling */
 scrollbar {
     background-color: transparent;
-    width: 8px;
 }
 
-scrollbar slider {
+scrollbar.vertical {
+    width: 8px;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+scrollbar.vertical trough,
+scrollbar.vertical trough:hover,
+scrollbar.vertical trough:active,
+scrollbar.vertical trough:backdrop,
+#scroll scrollbar.vertical trough {
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+scrollbar.vertical slider {
     background-color: rgba(51, 204, 255, 0.3);
     border-radius: 0px;
     min-height: 40px;
+    min-width: 8px;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
-scrollbar slider:hover {
+scrollbar.vertical slider:hover {
     background-color: rgba(51, 204, 255, 0.5);
 }
 
-scrollbar slider:active {
+scrollbar.vertical slider:active {
     background-color: rgba(51, 204, 255, 0.7);
+}
+
+scrollbar.horizontal,
+#scroll scrollbar.horizontal {
+    min-height: 0px;
+    max-height: 0px;
+    opacity: 0;
+}
+
+scrollbar.horizontal slider,
+#scroll scrollbar.horizontal slider {
+    min-width: 0px;
+    min-height: 0px;
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+
+separator,
+junction,
+#scroll separator,
+#scroll junction {
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 #entry:not(:has(#text)) {
